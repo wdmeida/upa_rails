@@ -28,6 +28,12 @@ gem 'devise'
 gem 'devise-i18n'
 # A simple Rails wrapper for Google Material Icons
 gem 'material_icons'
+# Gem responsável por gerar informações para testes.
+gem 'faker'
+# Paginação.
+gem 'kaminari'
+# Kaminari i18n
+gem 'kaminari-i18n'
 
 
 # Rails Assets
