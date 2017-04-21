@@ -1,0 +1,11 @@
+'pt-BR':
+  buttons:
+    back: Voltar
+    destroy: Excluir
+    home: Início
+    edit: Editar
+    new: Novo
+    save: Cadastrar
+    show: Mostrar
+    update: Atualizar
+    

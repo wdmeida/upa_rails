@@ -1,0 +1,41 @@
+<h3 class="center-align"><%= action %> <%= @admin.model_name.human(count: 1) %></h3>
+
+<div class="row">
+    
+    <%= form_for([:backoffice, @admin], :class => "col s12") do |f| %>
+        
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">account_circle</i>
+                <%= f.label :name %>              
+                <%= f.text_field :name, :class => "validate" %>
+            </div>
+
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">mail</i>
+                <%= f.label :email %>              
+                <%= f.text_field :email, :class => "validate" %>
+            </div>
+        </div>
+
+        <div class="row">    
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">vpn_key</i>
+                <%= f.label :password %>              
+                <%= f.password_field :password, :class => "validate" %>
+            </div>
+
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">vpn_key</i>
+                <%= f.label :password_confirmation %>              
+                <%= f.password_field :password_confirmation, :class => "validate" %>
+            </div>
+        </div>
+
+        <div class="row input-field col s12 m2 offset-m10">
+            <%= f.submit t('buttons.save'), :class => "btn waves-effect light-green darken-4" %>
+        </div>
+    
+    <% end %>
+
+</div>

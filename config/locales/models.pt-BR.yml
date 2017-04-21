@@ -1,0 +1,30 @@
+'pt-BR':
+  activerecord:
+    models:
+      admin:
+        one: Administrador
+        other: Administradores
+      doctor:
+        one: Médico
+        other: Médicos
+      specialization:
+        one: Especialização
+        other: Especializações
+    
+    attributes:
+      admin:
+        name: Nome
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de senha
+      doctor:
+        email: Email
+        crm: CRM
+        name: Nome
+        phone: Telefone
+        salary: Salário
+        specialization: Especialização
+        password: Senha
+        password_confirmation: Confirmação de senha
+      specialization:
+        description: Descrição

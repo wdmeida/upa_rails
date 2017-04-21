@@ -1,0 +1,21 @@
+<h3 class="center-align"><%= action %> <%= t('activerecord.models.specialization.one') %></h3>
+
+<div class="row">
+    
+    <%= form_for([:backoffice, @specialization], :class => "col s12") do |f| %>
+
+        <div class="row">
+            <div class="input-field col m10 s12">
+                <i class="material-icons prefix">work</i>
+                <%= f.label :description %>              
+                <%= f.text_field :description, :class => "validate" %>
+            </div>
+            
+            <div class="input-field col m2 s12">
+                <%= f.submit t('buttons.save'), :class => "btn waves-effect light-green darken-4" %>
+            </div>    
+        </div>
+
+    <% end %>
+
+</div>

@@ -1,0 +1,41 @@
+
+<h3 class="center-align"><%= @doctors.model_name.human(count: @doctors.length) %></h3>
+
+    <div class="row">
+        <div class="col s12 m1 offset-m11">
+                <%= link_to new_backoffice_doctor_path, :class => "btn-floating green" do %>
+                    <i class="material-icons">library_add</i>
+                <% end %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+
+            <table class="highlight centered">
+                <thead>
+                    <th>#</th>
+                    <th><%= @doctors.model.human_attribute_name("name") %></th>
+                    <th><%= @doctors.model.human_attribute_name("specialization") %></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <% @doctors.each do |doctor| %>
+                        <tr>
+                            <td><%= doctor.id %></td>
+                            <td><%= doctor.name %></td>
+                            <td><%= doctor.specialization.description %></td>
+                            <td>
+                                
+                                <%= link_to edit_backoffice_doctor_path(doctor), :class => "btn-floating cyan darken-4" do %>
+                                    <i class="material-icons">mode_edit</i>
+                                <% end %>
+
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+
+        </div>
+    </div>

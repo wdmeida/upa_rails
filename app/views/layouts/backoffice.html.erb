@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upa</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>  
+    
+  </head>
+
+  <body>
+      <!-- nav bar -->
+      <% if current_admin %>
+        <%= render :partial => "layouts/backoffice_shared/navigation" %>
+      <% end %>
+      
+      <div class="container">
+
+        <%= yield %>
+
+      </div>
+
+      <% if notice %>
+        <script>
+            $.notify("<%= notice %>", "success");
+        </script>
+      <% end %>
+
+      <% if alert %>
+        <script>
+          $.notify("<%= alert %>", "error");
+        </script>
+      <% end %>
+  </body>
+</html>
