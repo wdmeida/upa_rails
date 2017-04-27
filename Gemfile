@@ -70,6 +70,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Better error page for Rack apps
   gem "better_errors"
+  # Manage Procfile-based applications
+  gem 'foreman'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
