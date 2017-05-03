@@ -3,5 +3,5 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
-  validates_presence_of :name
+  validates_presence_of :name, presence: true, length: { minimum: 7 }
 end

@@ -1,6 +1,20 @@
 <h3 class="center-align"><%= action %> <%= @admin.model_name.human(count: 1) %></h3>
 
 <div class="row">
+    <div class="col s12">
+        <% if @admin.errors.any? %>
+            <ul class="collection with-header">
+                <% @admin.errors.full_messages.each do |message| %>
+                <li class="collection-item red-text">
+                    <strong><%= message %></strong>
+                </li>
+                <% end %>
+            </ul>
+        <% end %>
+    </div>
+</div>
+
+<div class="row">
     
     <%= form_for([:backoffice, @admin], :class => "col s12") do |f| %>
         
