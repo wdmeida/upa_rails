@@ -8,5 +8,5 @@ class Doctor < ApplicationRecord
   validates :name, presence: true, length: { minimum: 5 }
   validates :salary, presence: true
   validates :crm, presence: true, length: { minimum: 5 }
-  
+  validates :phone, presence: true
 end

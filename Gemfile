@@ -26,8 +26,6 @@ gem 'rails-i18n'
 gem 'devise'
 # Translations for the devise gem 
 gem 'devise-i18n'
-# Gem responsável por gerar informações para testes.
-gem 'faker'
 # Paginação.
 gem 'kaminari'
 # Quick Bootstrap 4 styling (tested for bootstrap 4.0.0.alpha3) for Kaminari
@@ -61,6 +59,22 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # RSpec for Rails-3
+  gem 'rspec-rails', '~> 3.5'
+  gem 'pry-rails'
+  # Gem responsável por gerar informações para testes.
+  gem 'faker'
+end
+
+group :test do
+  # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing. 
+  gem 'database_cleaner'
+  # Collection of testing matchers extracted from Shoulda.
+  gem 'shoulda-matchers', '~> 3.1'
+  # factory_girl is a fixtures replacement with a straightforward definition syntax
+  gem 'factory_girl_rails'
+  # A library for generating fake data such as names, addresses, and phone numbers. 
+  gem 'faker'
 end
 
 group :development do
