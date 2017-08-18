@@ -38,8 +38,8 @@ gem 'kaminari-i18n'
 
 # Rails Assets
 source 'https://rails-assets.org' do
-  # Assets materialize
-  gem 'rails-assets-materialize'
+  # Assets bootstrap
+  gem 'rails-assets-bootstrap', '4.0.0.alpha.6'
   # NotifyJS
   gem 'rails-assets-notifyjs'
 end

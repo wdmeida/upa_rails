@@ -5,7 +5,7 @@ class Doctor < ApplicationRecord
 
   belongs_to :specialization
 
-  validates :name, presence: true, length: { minimum: 10 }
+  validates :name, presence: true, length: { minimum: 5 }
   validates :salary, presence: true
   validates :crm, presence: true, length: { minimum: 5 }
   

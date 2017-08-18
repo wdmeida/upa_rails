@@ -1,0 +1,5 @@
+'pt-BR':
+  labels:
+    submit: Enviar
+    login: Login
+    remember_me: Lembrar-me

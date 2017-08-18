@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-1 col-md-3 col-md-4 col-xl-4"></div>
+
+  <div class="col-sm-10 col-md-6 col-md-4 col-xl-4">
+    <div class="jumbotron">
+      <h2><%= t('labels.login') %></h2>
+      <hr class="my-4">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Senha' %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="form-check">
+            <%= f.check_box :remember_me, class: 'form-check-input', :style => "margin-left: 0;" %>            
+            <%= f.label t('labels.remember_me'), class: 'form-check-label' %>
+          </div>
+        <% end -%>
+      
+        <div class="actions">
+          <%= f.submit t('buttons.submit'), class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-sm-1 col-md-3 col-md-4 col-xl-4"></div>
+</div>
+<%= render "devise/shared/links" %>
