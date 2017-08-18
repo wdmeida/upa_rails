@@ -26,12 +26,12 @@ gem 'rails-i18n'
 gem 'devise'
 # Translations for the devise gem 
 gem 'devise-i18n'
-# A simple Rails wrapper for Google Material Icons
-gem 'material_icons'
 # Gem responsável por gerar informações para testes.
 gem 'faker'
 # Paginação.
 gem 'kaminari'
+# Quick Bootstrap 4 styling (tested for bootstrap 4.0.0.alpha3) for Kaminari
+gem 'bootstrap4-kaminari-views'
 # Kaminari i18n
 gem 'kaminari-i18n'
 

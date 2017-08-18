@@ -42,8 +42,14 @@ class Backoffice::DoctorsController < BackofficeController
                 params[:doctor].except!(:password, :password_confirmation)
             end
 
-            params.require(:doctor).permit(:name, :email, :crm, :specialization_id, 
-                                           :salary,:password, :password_confirmation)
+            params.require(:doctor).permit(:name, 
+                                           :email, 
+                                           :crm,
+                                           :phone, 
+                                           :specialization_id, 
+                                           :salary,
+                                           :password, 
+                                           :password_confirmation)
         end
 
         def set_doctor

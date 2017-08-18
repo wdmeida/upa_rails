@@ -1,55 +1,60 @@
-<h3 class="center-align"><%= action %> <%= @admin.model_name.human(count: 1) %></h3>
-
 <div class="row">
-    <div class="col s12">
-        <% if @admin.errors.any? %>
-            <ul class="collection with-header">
-                <% @admin.errors.full_messages.each do |message| %>
-                <li class="collection-item red-text">
-                    <strong><%= message %></strong>
-                </li>
-                <% end %>
-            </ul>
-        <% end %>
+    <h3 class="mx-auto">
+        <%= t('activerecord.models.admin.one') %>
+        <small class="text-muted"><%= action %></small>
+    </h3>    
+</div>
+
+<% if @admin.errors.any? %>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-danger" role="alert">            
+                <ul class="list-group">
+                    <% @admin.errors.full_messages.each do |message| %>
+                        <li class="list-group-item">
+                            <strong><%= message %></strong>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
-
-<div class="row">
+<% end %>
     
-    <%= form_for([:backoffice, @admin], :class => "col s12") do |f| %>
-        
-        <div class="row">
-            <div class="input-field col s12 m6">
-                <i class="material-icons prefix">account_circle</i>
-                <%= f.label :name %>              
-                <%= f.text_field :name, :class => "validate" %>
-            </div>
-
-            <div class="input-field col s12 m6">
-                <i class="material-icons prefix">mail</i>
-                <%= f.label :email %>              
-                <%= f.text_field :email, :class => "validate" %>
-            </div>
-        </div>
-
-        <div class="row">    
-            <div class="input-field col s12 m6">
-                <i class="material-icons prefix">vpn_key</i>
-                <%= f.label :password %>              
-                <%= f.password_field :password, :class => "validate" %>
-            </div>
-
-            <div class="input-field col s12 m6">
-                <i class="material-icons prefix">vpn_key</i>
-                <%= f.label :password_confirmation %>              
-                <%= f.password_field :password_confirmation, :class => "validate" %>
-            </div>
-        </div>
-
-        <div class="row input-field col s12 m2 offset-m10">
-            <%= f.submit t('buttons.save'), :class => "btn waves-effect light-green darken-4" %>
-        </div>
+<%= form_for([:backoffice, @admin]) do |f| %>
     
-    <% end %>
+    <div class="form-group row">
+        <%= f.label :name, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :name, :class => 'form-control' %>            
+        </div>              
+    </div>
 
-</div>
+    <div class="form-group row">
+        <%= f.label :email, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :email, :class => 'form-control' %>                    
+        </div>              
+    </div>
+
+    <div class="form-group row">    
+        <%= f.label :password, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.password_field :password, :class => 'form-control' %>                    
+        </div>              
+    </div>
+
+    <div class="form-group row">
+        <%= f.label :password_confirmation, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.password_field :password_confirmation, :class => 'form-control' %>                
+        </div>              
+    </div>
+
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+            <%= f.submit t('buttons.save'), :class => "btn btn-primary" %>            
+        </div>
+    </div>
+
+<% end %>
