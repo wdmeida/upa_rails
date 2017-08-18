@@ -223,6 +223,7 @@ DEPENDENCIES
   rails (~> 5.0.2)
   rails-assets-bootstrap (= 4.0.0.alpha.6)!
   rails-assets-notifyjs!
+  rails-assets-tether!
   rails-i18n
   sass-rails (~> 5.0)
   spring

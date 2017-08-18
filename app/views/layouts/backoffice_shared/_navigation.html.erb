@@ -1,57 +1,38 @@
-<nav class="nav-extended">
-    <div class="nav-wrapper light-green darken-4">
-    
-        <%= link_to backoffice_dashboard_index_path, :class => "brand-logo" do %>
-            Dashboard
-        <% end %>
-        
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        
-        <!-- nav top -->
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><%= current_admin.email %></li>
-            <li>
-                <%= link_to backoffice_admins_path do %>
-                    Administradores
-                <% end %>
-            </li>
-            <li>
-                <%= link_to backoffice_specializations_path do %>
-                    Especializações
-                <% end %>
-            </li>
-            <li>
-                <%= link_to backoffice_doctors_path do %>
-                    Médicos
-                <% end %>
-            </li>
-            <li>
-                <%= link_to destroy_admin_session_path, method: :delete do %>
-                    Sair
-                <% end %>
-            </li>
-        </ul>
+<nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
 
-        <!-- nav mobile -->
-        <ul class="side-nav" id="mobile-demo">
-            <li><%= current_admin.email %></li>
-            <li>
-                <%= link_to backoffice_specializations_path do %>
-                    Especializações
+    <%= link_to backoffice_dashboard_index_path, :class => "navbar-brand" do %>
+        <%= t('backoffice_menu.dashboard') %>
+    <% end %>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarBackoffice"
+        aria-controls="nabvarBackoffice" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- nav top -->
+    <div class="collapse navbar-collapse" id="navbarBackoffice">
+        <ul class="navbar-nav">
+            <!-- <li class="nav-item"><%= current_admin.email %></li> -->
+            <li class="nav-item <%= active_class(backoffice_admins_path) %>">
+                <%= link_to backoffice_admins_path, class: 'nav-link' do %>
+                    <%= t('backoffice_menu.administrators') %>
                 <% end %>
             </li>
-            <li>
-                <%= link_to backoffice_doctors_path do %>
-                    Médicos
+            <li class="nav-item <%= active_class(backoffice_specializations_path) %>">
+                <%= link_to backoffice_specializations_path, class: 'nav-link' do %>
+                    <%= t('backoffice_menu.specializations') %>
                 <% end %>
             </li>
-            <li>
-                <%= link_to destroy_admin_session_path, method: :delete do %>
-                    Sair
+            <li class="nav-item <%= active_class(backoffice_doctors_path) %>">
+                <%= link_to backoffice_doctors_path, class: 'nav-link' do %>
+                    <%= t('backoffice_menu.doctors') %>
+                <% end %>
+            </li>
+            <li class="nav-item">
+                <%= link_to destroy_admin_session_path, class: 'nav-link',method: :delete do %>
+                    <%= t('backoffice_menu.exit') %>
                 <% end %>
             </li>
         </ul>
-    
     </div>
-
 </nav>

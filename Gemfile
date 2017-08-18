@@ -42,6 +42,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap', '4.0.0.alpha.6'
   # NotifyJS
   gem 'rails-assets-notifyjs'
+  # A client-side library to make absolutely positioned elements attach to elements in the page efficiently.
+  gem 'rails-assets-tether'
 end
 
 # Use jquery as the JavaScript library
