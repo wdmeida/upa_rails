@@ -34,7 +34,11 @@ class Backoffice::SpecializationsController < BackofficeController
     private
         
         def set_specialization
-            @specialization = Specialization.find(params[:id])
+            begin
+                @specialization = Specialization.find(params[:id])
+            rescue => exception
+               head :not_found 
+            end
         end
 
         def params_specialization

@@ -4,6 +4,7 @@ RSpec.describe Backoffice::SpecializationsController, type: :controller do
   render_views
 
   let!(:specializations) { create_list(:specialization, 10) }
+  let(:specialization) { specializations.last }
 
   describe 'GET #index' do
     context 'when user is logged in' do
@@ -77,6 +78,68 @@ RSpec.describe Backoffice::SpecializationsController, type: :controller do
       end
 
       it { should redirect_to new_admin_session_path }            
+    end
+  end
+
+  describe 'GET #edit' do
+    context 'when user is logged in' do
+      login_admin
+
+      context 'with valid params' do
+        before { get :edit, params: { id: specialization.id } }
+      
+        it { should respond_with(:ok) }
+        it { should render_template(:edit) }
+      end
+
+      context 'with invalid params' do
+        before { get :edit, params: { id: 99999999 } }
+        
+        it { should respond_with(:not_found) }
+      end
+    end
+
+    context 'when user is logged out' do
+      before { get :edit, params: { id: specialization.id } }
+
+      it { should redirect_to new_admin_session_path }
+    end
+  end
+
+  describe 'PUT #update' do
+    let(:specialization_attr) do
+      { :description => 'new specialization' }
+    end
+
+    context 'when user is logged in' do
+      login_admin
+
+      context 'with valid params' do
+        before(:each) do 
+          get :update, params: { id: specialization.id, specialization: specialization_attr }          
+          specialization.reload
+        end
+
+        it { should respond_with(:redirect) }
+        it { expect(specialization.description).to eq(specialization_attr[:description]) }
+        it { should redirect_to(backoffice_specializations_path) }
+      end
+
+      context 'with invalid params' do
+        before(:each) do
+          get :update, params: { id: specialization.id, specialization: { description: '' } }
+        end
+
+        it { should render_template(:edit) }
+      end
+    end
+
+    context 'when user is logged out' do
+      before do
+        get :update, params: { id: specialization.id, specialization: specialization_attr }          
+      end
+
+      it { should redirect_to new_admin_session_path }
     end
   end
 end
