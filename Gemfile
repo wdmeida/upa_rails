@@ -59,8 +59,6 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  # RSpec for Rails-3
-  gem 'rspec-rails', '~> 3.5'
   gem 'pry-rails'
   # Gem responsável por gerar informações para testes.
   gem 'faker'
@@ -75,6 +73,10 @@ group :test do
   gem 'factory_girl_rails'
   # A library for generating fake data such as names, addresses, and phone numbers. 
   gem 'faker'
+  # RSpec for Rails-3
+  gem 'rspec-rails', '~> 3.6'
+  # Adding methods from controller-testing
+  gem 'rails-controller-testing'
 end
 
 group :development do
