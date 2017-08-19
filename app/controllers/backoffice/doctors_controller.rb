@@ -39,7 +39,7 @@ class Backoffice::DoctorsController < BackofficeController
             passwd_confirmation = params[:doctor][:password_confirmation]
 
             if passwd.blank? && passwd_confirmation.blank?
-                params[:doctor].except!(:password, :password_confirmation)
+                params[:doctor].except(:password, :password_confirmation)
             end
 
             params.require(:doctor).permit(:name, 
@@ -53,7 +53,11 @@ class Backoffice::DoctorsController < BackofficeController
         end
 
         def set_doctor
-            @doctor = Doctor.find(params[:id])
+            begin
+                @doctor = Doctor.find(params[:id])                
+            rescue => exception
+                head :not_found
+            end
         end
 
         def set_specialization_for_select

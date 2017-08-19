@@ -62,6 +62,8 @@ group :development, :test do
   gem 'pry-rails'
   # Gem responsável por gerar informações para testes.
   gem 'faker'
+  # Rails application preloader
+  gem "spring"
 end
 
 group :test do
