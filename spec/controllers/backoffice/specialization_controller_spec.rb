@@ -17,7 +17,7 @@ RSpec.describe Backoffice::SpecializationsController, type: :controller do
       it { should render_template(:index) }
 
       it 'assigns @specializations' do
-        expect(assigns(:specializations)).to eq(specializations)
+        expect( assigns(:specializations) ).to eq(specializations)
       end
     end
 

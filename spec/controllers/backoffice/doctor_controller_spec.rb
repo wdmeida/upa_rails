@@ -15,6 +15,10 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
       it { should respond_with(:ok) }
       it { should render_with_layout(:backoffice) }
       it { should render_template(:index) }
+
+      it 'assign @doctors' do
+        expect( assigns(:doctors) ).to eq(doctors)
+      end
     end
 
     context 'when user is logged out' do
@@ -45,7 +49,8 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
   end
 
   describe 'POST #create' do
-    let(:doctor_params) { attributes_for(:doctor) }
+    let!(:specialization) { create(:specialization) }
+    let(:doctor_params) { attributes_for(:doctor, :specialization_id => specialization.id) }
 
     context 'when user is logged in' do
       login_admin

@@ -3,7 +3,7 @@
     confirm: Deseja realmente excluir este item?
     confirm_with: Deseja realmente excluir %{item}?
     created: Item cadastrado com sucesso!
-    created_with: Item %{item} criado com sucesso!
+    created_with: '%{item} criado com sucesso!'
     updated: Item atualizado com sucesso!
     updated_with: Item %{item} atualizado com sucesso!
     destroyed: Item removido com sucesso!
