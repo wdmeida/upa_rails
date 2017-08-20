@@ -44,7 +44,11 @@ class Backoffice::AdminsController < BackofficeController
     private
 
         def set_admin
-            @admin = Admin.find(params[:id])
+            begin
+                @admin = Admin.find(params[:id])                
+            rescue => exception
+                head :not_found
+            end
         end
 
         def params_admins
@@ -53,7 +57,7 @@ class Backoffice::AdminsController < BackofficeController
 
             # Verifica se password e password_confirmation vieram em branco, o que indica atualização de dados.
             if passwd.blank? && passwd_confirmation.blank?
-                params[:admin].except!(:password, :password_confirmation)
+                params[:admin].except(:password, :password_confirmation)
             end
 
             params.require(:admin).permit(:name, :email, :password, :password_confirmation)     

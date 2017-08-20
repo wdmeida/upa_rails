@@ -51,7 +51,7 @@ RSpec.describe Backoffice::SpecializationsController, type: :controller do
   describe 'POST #create' do
     let(:specialization_params) { attributes_for(:specialization) }      
     
-    context 'when user is logged out' do
+    context 'when user is logged in' do
       login_admin
 
       context 'with valid params' do
@@ -93,7 +93,7 @@ RSpec.describe Backoffice::SpecializationsController, type: :controller do
       end
 
       context 'with invalid params' do
-        before { get :edit, params: { id: 99999999 } }
+        before { get :edit, params: { id: 99999999 }, headers: {} }
         
         it { should respond_with(:not_found) }
       end
