@@ -1,0 +1,2 @@
+module Upa::HomeHelper
+end

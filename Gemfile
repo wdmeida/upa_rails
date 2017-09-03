@@ -42,6 +42,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-notifyjs'
   # A client-side library to make absolutely positioned elements attach to elements in the page efficiently.
   gem 'rails-assets-tether'
+  # BootboxJS. Library for box confirmation and messages.
+  gem 'rails-assets-bootbox'
 end
 
 # Use jquery as the JavaScript library

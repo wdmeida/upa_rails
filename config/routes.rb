@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'upa/home#index'
   
   namespace :backoffice do
     get 'dashboard/index'
@@ -7,10 +8,11 @@ Rails.application.routes.draw do
     resources :doctors, except: [:destroy]
   end
 
-  root 'home#index'
+  namespace :upa do
+    get 'home/index'
+  end
   
-  get 'backoffice', to: 'backoffice/dashboard#index'
-  get 'home/index'  
+  get 'backoffice', to: 'backoffice/dashboard#index' 
   
   # Devise
   devise_for :admins, :skip => [:registrations]
