@@ -29,10 +29,15 @@
                     <%= t('backoffice_menu.doctors') %>
                 <% end %>
             </li>
-            <li class="nav-item">
-                <%= link_to destroy_admin_session_path, class: 'nav-link',method: :delete do %>
-                    <%= t('backoffice_menu.exit') %>
-                <% end %>
+            <li class="nav-item dropdown navbar-toggler-right">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bem-vindo, <%= current_admin.name %>!!!
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <%= link_to destroy_admin_session_path, class: 'dropdwon-item',method: :delete do %>
+                        <%= t('backoffice_menu.exit') %>
+                    <% end %>
+                </div>
             </li>
         </ul>
     </div>
