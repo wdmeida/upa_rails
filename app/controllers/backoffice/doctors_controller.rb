@@ -4,7 +4,7 @@ class Backoffice::DoctorsController < BackofficeController
     before_action :set_specialization_for_select, only: [:create, :edit, :new, :update]
 
     def index
-        @doctors = Doctor.page(params[:page]).per(10)
+        @doctors = Doctor.page(params[:page]).per(10).includes(:specialization)
     end
 
     def new
