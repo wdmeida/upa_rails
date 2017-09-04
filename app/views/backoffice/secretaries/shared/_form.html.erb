@@ -1,0 +1,60 @@
+<div class="row">
+    <h3 class="mx-auto">
+        <%= t('activerecord.models.secretary.one') %>
+        <small class="text-muted"><%= action %></small>
+    </h3>    
+</div>
+
+<% if @secretary.errors.any? %>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-danger" role="alert">            
+                <ul class="list-group">
+                    <% @secretary.errors.full_messages.each do |message| %>
+                        <li class="list-group-item">
+                            <strong><%= message %></strong>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+<% end %>
+    
+<%= form_for([:backoffice, @secretary]) do |f| %>
+    
+    <div class="form-group row">
+        <%= f.label :name, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :name, :class => 'form-control' %>            
+        </div>              
+    </div>
+
+    <div class="form-group row">
+        <%= f.label :email, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :email, :class => 'form-control' %>                    
+        </div>              
+    </div>
+
+    <div class="form-group row">    
+        <%= f.label :password, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.password_field :password, :class => 'form-control' %>                    
+        </div>              
+    </div>
+
+    <div class="form-group row">
+        <%= f.label :password_confirmation, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.password_field :password_confirmation, :class => 'form-control' %>                
+        </div>              
+    </div>
+
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+            <%= f.submit t('buttons.save'), :class => "btn btn-primary" %>            
+        </div>
+    </div>
+
+<% end %>

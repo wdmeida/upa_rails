@@ -19,14 +19,19 @@
                     <%= t('backoffice_menu.administrators') %>
                 <% end %>
             </li>
+            <li class="nav-item <%= active_class(backoffice_doctors_path) %>">
+                <%= link_to backoffice_doctors_path, class: 'nav-link' do %>
+                    <%= t('backoffice_menu.doctors') %>
+                <% end %>
+            </li>
             <li class="nav-item <%= active_class(backoffice_specializations_path) %>">
                 <%= link_to backoffice_specializations_path, class: 'nav-link' do %>
                     <%= t('backoffice_menu.specializations') %>
                 <% end %>
             </li>
-            <li class="nav-item <%= active_class(backoffice_doctors_path) %>">
-                <%= link_to backoffice_doctors_path, class: 'nav-link' do %>
-                    <%= t('backoffice_menu.doctors') %>
+            <li class="nav-item <%= active_class(backoffice_secretaries_path) %>">
+                <%= link_to backoffice_secretaries_path, class: 'nav-link' do %>
+                    <%= t('backoffice_menu.secretaries') %>
                 <% end %>
             </li>
             <li class="nav-item dropdown navbar-toggler-right">

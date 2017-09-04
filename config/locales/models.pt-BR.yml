@@ -10,6 +10,9 @@
       specialization:
         one: Especialização
         other: Especializações
+      secretary:
+        one: Secretária
+        other: Secretárias
     
     attributes:
       admin:
@@ -28,3 +31,8 @@
         password_confirmation: Confirmação de senha
       specialization:
         description: Descrição
+      secretary:
+        name: Nome
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de Senha

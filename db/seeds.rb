@@ -36,3 +36,14 @@ Admin.create!(
 )
 
 puts 'Administrador padrão cadastrado com sucesso!'
+
+puts 'Cadastrando Usuário padrão...'
+
+Admin.create!(
+    :name => "Usuário",
+    :email => "user@user.com",
+    :password => "123456",
+    :password_confirmation => "123456"
+)
+
+puts 'Usuário padrão cadastrado com sucesso!'
