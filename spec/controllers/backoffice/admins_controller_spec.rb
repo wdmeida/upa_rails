@@ -144,4 +144,27 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
       it { is_expected.to redirect_to new_admin_session_path }
     end
   end
+
+  describe 'DELETE #destroy' do
+    context 'when user is logged in' do
+      login_admin
+
+      context 'with admin id is valid' do
+        before { delete :destroy, params: { id: admin.id }, headers: {} }
+
+        it { is_expected.to respond_with(:redirect) }
+        
+        it 'removes admin from database' do
+          expect(Admin.all).not_to include admin
+          expect { admin.reload }.to raise_error ActiveRecord::RecordNotFound
+        end
+      end
+    end
+    
+    context 'when user is logged out' do
+      before { delete :destroy, params: { id: admin.id }, headers: {} }
+
+      it { is_expected.to redirect_to new_admin_session_path }
+    end
+  end
 end

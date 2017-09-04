@@ -145,4 +145,27 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
       it { is_expected.to redirect_to new_admin_session_path }
     end
   end
+
+  describe 'DELETE #destroy' do
+    context 'when user is logged in' do
+      login_admin
+
+      context 'with secretary id is valid' do
+        before { delete :destroy, params: { id: secretary.id }, headers: {} }
+
+        it { is_expected.to respond_with(:redirect) }
+
+        it 'removes secretary from database' do
+          expect(Secretary.all).not_to include secretary
+          expect { secretary.reload }.to raise_error ActiveRecord::RecordNotFound
+        end
+      end
+    end
+
+    context 'when user is logged out' do
+      before { delete :destroy, params: { id: secretary.id }, headers: {} }
+
+      it { is_expected.to redirect_to new_admin_session_path }
+    end
+  end
 end

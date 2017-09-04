@@ -30,6 +30,16 @@ class Backoffice::SecretariesController < BackofficeController
     end
   end
 
+  def destroy
+    secretary_email = @secretary.email
+
+    if @secretary.destroy
+      redirect_to backoffice_secretaries_path, notice: I18n.t('messages.destroyed_with', :item => secretary_email)
+    else
+      render :index
+    end
+  end
+
   private
 
     def set_secretary
