@@ -1,1 +1,43 @@
-<h1>Teste render home</h1>
+<div class="row">
+  <h3 class="mx-auto">
+      <%= @patients.model_name.human(count: @patients.length) %>
+      <small class="text-muted"><%= t('labels.listed') %></small>
+  </h3>    
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Pesquisar...">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Pesquisar!</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= @patients.model.human_attribute_name('name') %></th>
+          <th><%= @patients.model.human_attribute_name('birth') %></th>
+          <th><%= @patients.model.human_attribute_name('phone') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @patients.each do |patient| %>
+          <tr>
+            <td scope='row'><%= patient.id %></td>
+            <td><%= patient.name %></td>
+            <td><%= l(patient.birth) %></td>
+            <td><%= patient.phone %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @patients, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>

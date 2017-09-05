@@ -3,7 +3,7 @@ class Backoffice::AdminsController < BackofficeController
     before_action :set_admin, only: [:destroy, :edit, :update]
 
     def index
-        @admins = Admin.all
+        @admins = Admin.page(params[:page]).per(Constants::QTT_PER_PAGE)
     end
 
     def new

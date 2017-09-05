@@ -13,6 +13,9 @@
       secretary:
         one: Secretária
         other: Secretárias
+      patient:
+        one: Paciente
+        other: Pacientes
     
     attributes:
       admin:
@@ -36,3 +39,7 @@
         email: Email
         password: Senha
         password_confirmation: Confirmação de Senha
+      patient:
+        name: Nome
+        birth: Data de Aniversário
+        phone: Telefone

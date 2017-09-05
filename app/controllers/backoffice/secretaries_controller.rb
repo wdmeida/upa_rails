@@ -2,7 +2,7 @@ class Backoffice::SecretariesController < BackofficeController
   before_action :set_secretary, only: [:destroy, :edit, :update]
 
   def index
-    @secretaries = Secretary.all
+    @secretaries = Secretary.page(params[:page]).per(Constants::QTT_PER_PAGE)
   end
 
   def new

@@ -1,40 +1,27 @@
 namespace :setup do
   desc "TODO"
   task development: :environment do
-    puts 'Cadastrando administrador padrão...'
+       
+    puts 'Cadastrando administradores teste...'
 
+    20.times do
       Admin.create!(
-        :name => 'Administrador',
-        :email => 'admin@admin.com',
-        :password => '12345678',
-        :password_confirmation => '12345678'
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        password: '123456',
+        password_confirmation: '123456'
       )
+    end
 
-    puts 'Cadastrando administrador padrão [Ok]'
+    puts 'Cadastrando administradores teste [OK]'
     
-    
+
     puts '========================================================'
 
-    
-    puts 'Cadastrando especializações...'
-
-      specializations = [
-        'Ortopedia',
-        'Neurologia',
-        'Cardiologia',
-        'Piscicologia',
-        'Obstetria'
-      ]
-
-      specializations.each do |specialization|  
-        Specialization.create!(:description => specialization)
-      end
-
-    puts 'Cadastrando especializações [Ok]'
 
     puts "Cadastrando Médicos Fake..."
     
-        20.times do
+        100.times do
           Doctor.create!(
               name: Faker::Name.name,
               email: Faker::Internet.email,
@@ -49,6 +36,40 @@ namespace :setup do
         end
     
     puts "Cadastrando Médicos Fake [Ok]"
+
+
+    puts '======================================================='
+    
+
+    puts 'Cadastrando Secretárias Fake...'
+    
+    50.times do
+      Secretary.create!(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        password: '123456',
+        password_confirmation: '123456'        
+      )
+    end
+
+    puts 'Cadastrando Secretárias Fake [Ok]'
+
+
+    puts '======================================================='
+
+
+    puts 'Cadastrando Pacientes Fake...'
+    
+    100.times do
+      Patient.create!(
+        name: Faker::Name.name,     
+        birth: Faker::Date.birthday(1, 80),
+        phone: Faker::PhoneNumber.phone_number     
+      )
+    end
+
+    puts 'Cadastrando Pacientes Fake [Ok]'
+
   end
 
 end

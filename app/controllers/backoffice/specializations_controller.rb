@@ -3,7 +3,7 @@ class Backoffice::SpecializationsController < BackofficeController
     before_action :set_specialization, only: [:edit, :update]
 
     def index
-        @specializations = Specialization.all
+        @specializations = Specialization.page(params[:page]).per(Constants::QTT_PER_PAGE)
     end
 
     def new
