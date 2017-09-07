@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     def layout_by_resource
       if devise_controller? && resource_name == :admin
         "backoffice_devise"
+      elsif devise_controller? && resource_name == :secretary
+        "upa_devise"
       else
         "application"
       end 
