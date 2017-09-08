@@ -12,6 +12,11 @@
  *
  *= require tether
  *= require bootstrap
- *= require_tree .
  *= require_self
  */
+
+ h3 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+

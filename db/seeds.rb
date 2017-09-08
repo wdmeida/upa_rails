@@ -11,8 +11,8 @@ puts 'Cadastrando administrador padrão...'
   Admin.create!(
     :name => 'Administrador',
     :email => 'admin@admin.com',
-    :password => '12345678',
-    :password_confirmation => '12345678'
+    :password => '123456',
+    :password_confirmation => '123456'
   )
 
 puts 'Cadastrando administrador padrão [Ok]'
