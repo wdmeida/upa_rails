@@ -7,7 +7,7 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
   let(:doctor) { doctors.last }
 
   describe 'GET #index' do
-    context 'when user is logged in' do
+    context 'when admin is logged in' do
       login_admin
 
       before { get :index }
@@ -21,7 +21,7 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
       end
     end
 
-    context 'when user is logged out' do
+    context 'when admin is logged out' do
       before { get :index }
 
       it { is_expected.to redirect_to new_admin_session_path }
@@ -29,19 +29,19 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
   end
 
   describe 'GET #new' do
-    context 'when user is logged in' do
+    context 'when admin is logged in' do
       login_admin
       before { get :new }
 
       it { is_expected.to render_template(:new) }
       it { is_expected.to respond_with(:ok) }
 
-      it 'assign @doctors' do
+      it 'assign @doctor' do
         expect(assigns(:doctor)).to be_a_new(Doctor)
       end
     end
 
-    context 'when user is logged out' do
+    context 'when admin is logged out' do
       before { get :new }
 
       it { is_expected.to redirect_to new_admin_session_path }
@@ -52,7 +52,7 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
     let!(:specialization) { create(:specialization) }
     let(:doctor_params) { attributes_for(:doctor, :specialization_id => specialization.id) }
 
-    context 'when user is logged in' do
+    context 'when admin is logged in' do
       login_admin
 
       context 'with valid params' do
@@ -74,7 +74,7 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
       end
     end
 
-    context 'when user is logged out' do
+    context 'when admin is logged out' do
       before do
         post :create, params: { doctor: doctor_params }, headers: {}
       end
@@ -84,7 +84,7 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
   end
 
   describe 'GET #edit' do
-    context 'when user is logged in' do
+    context 'when admin is logged in' do
       login_admin
 
       context 'with valid params' do
@@ -101,7 +101,7 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
       end
     end
 
-    context 'when user is logged out' do
+    context 'when admin is logged out' do
       before { get :edit, params: { id: doctor.id }, headers: {} }
 
       it { is_expected.to redirect_to new_admin_session_path }
@@ -113,7 +113,7 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
       { :name => 'new doctor name' }
     end
 
-    context 'when user is logged in' do
+    context 'when admin is logged in' do
       login_admin
 
       context 'with valid params' do
@@ -134,7 +134,7 @@ RSpec.describe Backoffice::DoctorsController, type: :controller do
       end
     end
 
-    context 'when user is logged out' do
+    context 'when admin is logged out' do
       before do
         get :update, params: { id: doctor.id, doctor: doctor_attr }, headers: {}
       end
