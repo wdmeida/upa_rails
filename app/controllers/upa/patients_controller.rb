@@ -1,5 +1,6 @@
 class Upa::PatientsController < UpaController
-  
+  before_action :set_patient, only: [:edit, :update]
+
   def index 
     @patients = Patient.page(params[:page]).per(Constants::QTT_PER_PAGE)
   end
@@ -18,11 +19,30 @@ class Upa::PatientsController < UpaController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @patient.update(params_patient)
+      redirect_to upa_patients_path, notice: I18n.t('messages.updated_with', :item => @patient.name)
+    else
+      render :edit
+    end
+  end
+
   private
 
     def params_patient
       params.require(:patient).permit(:name,
                                       :birth,
                                       :phone)
+    end
+
+    def set_patient
+      begin
+        @patient = Patient.find(params[:id])      
+      rescue => exception
+        head :not_found
+      end
     end
 end
