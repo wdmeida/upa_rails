@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/i18n/datepicker-pt-BR
 //= require jquery_ujs
 //= require tether
 //= require bootbox
@@ -47,3 +49,8 @@ $.rails.allowAction = function(element) {
 
   return false;
 }
+
+// Activated datepicker
+$(function() {
+  $('.datepicker').datepicker();
+});

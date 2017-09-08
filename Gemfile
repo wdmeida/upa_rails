@@ -32,7 +32,8 @@ gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 # Kaminari i18n
 gem 'kaminari-i18n'
-
+# jQuery UI for the Rails asset pipeline 
+gem 'jquery-ui-rails'
 
 # Rails Assets
 source 'https://rails-assets.org' do

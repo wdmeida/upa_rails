@@ -1,0 +1,53 @@
+<div class="row">
+    <h3 class="mx-auto">
+        <%= t('activerecord.models.patient.one') %>
+        <small class="text-muted"><%= action %></small>
+    </h3>    
+</div>
+
+<% if @patient.errors.any? %>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-danger" role="alert">            
+                <ul class="list-group">
+                    <% @patient.errors.full_messages.each do |message| %>
+                        <li class="list-group-item">
+                            <strong><%= message %></strong>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+<% end %>
+    
+<%= form_for([:upa, @patient]) do |f| %>
+    
+    <div class="form-group row">
+        <%= f.label :name, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :name, :class => 'form-control' %>            
+        </div>              
+    </div>
+
+    <div class="form-group row">
+        <%= f.label :phone, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :phone, :class => 'form-control' %>                    
+        </div>              
+    </div>
+
+    <div class="form-group row">
+        <%= f.label :birth, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :birth, :class => 'form-control datepicker', :value => (l(@patient.birth) unless @patient.birth.blank?) %>                    
+        </div>              
+    </div>
+
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+            <%= f.submit t('buttons.save'), :class => "btn btn-primary" %>            
+        </div>
+    </div>
+
+<% end %>

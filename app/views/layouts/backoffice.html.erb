@@ -3,10 +3,7 @@
   <head>
     <title>Upa</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>  
-    
   </head>
 
   <body>
@@ -19,6 +16,7 @@
         <%= yield %> 
       </div>
 
+      <%= javascript_include_tag 'application' %>  
       <% if notice %>
         <script>
             $.notify("<%= notice %>", "success");

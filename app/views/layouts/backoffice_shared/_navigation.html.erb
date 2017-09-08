@@ -1,49 +1,49 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
 
-    <button class="navbar-toggler navbar-toggler-right hidden-lg-up" 
-        type="button" data-toggle="collapse" data-target="#navbarBackoffice"
-        aria-controls="nabvarBackoffice" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <%= link_to backoffice_dashboard_index_path, :class => "navbar-brand" do %>
-        <%= t('backoffice_menu.dashboard') %>
-    <% end %>
-    
-    <!-- nav top -->
-    <div class="collapse navbar-collapse" id="navbarBackoffice">
-        <ul class="navbar-nav mr-auto">
-            <!-- <li class="nav-item"><%= current_admin.email %></li> -->
-            <li class="nav-item <%= active_class(backoffice_admins_path) %>">
-                <%= link_to backoffice_admins_path, class: 'nav-link' do %>
-                    <%= t('backoffice_menu.administrators') %>
-                <% end %>
-            </li>
-            <li class="nav-item <%= active_class(backoffice_doctors_path) %>">
-                <%= link_to backoffice_doctors_path, class: 'nav-link' do %>
-                    <%= t('backoffice_menu.doctors') %>
-                <% end %>
-            </li>
-            <li class="nav-item <%= active_class(backoffice_specializations_path) %>">
-                <%= link_to backoffice_specializations_path, class: 'nav-link' do %>
-                    <%= t('backoffice_menu.specializations') %>
-                <% end %>
-            </li>
-            <li class="nav-item <%= active_class(backoffice_secretaries_path) %>">
-                <%= link_to backoffice_secretaries_path, class: 'nav-link' do %>
-                    <%= t('backoffice_menu.secretaries') %>
-                <% end %>
-            </li>
-            <li class="nav-item dropdown navbar-toggler-right">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Bem-vindo, <%= current_admin.name %>!!!
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <%= link_to destroy_admin_session_path, class: 'dropdwon-item',method: :delete do %>
-                        <%= t('backoffice_menu.exit') %>
-                    <% end %>
-                </div>
-            </li>
-        </ul>
-    </div>
+  <button class="navbar-toggler navbar-toggler-right hidden-lg-up" 
+      type="button" data-toggle="collapse" data-target="#navbarBackoffice"
+      aria-controls="nabvarBackoffice" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <%= link_to backoffice_dashboard_index_path, :class => "navbar-brand" do %>
+    <%= t('backoffice_menu.dashboard') %>
+  <% end %>
+  
+  <!-- nav top -->
+  <div class="collapse navbar-collapse" id="navbarBackoffice">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item"><%= current_admin.email %></li> -->
+      <li class="nav-item <%= active_class(backoffice_admins_path) %>">
+        <%= link_to backoffice_admins_path, class: 'nav-link' do %>
+          <%= t('backoffice_menu.administrators') %>
+        <% end %>
+      </li>
+      <li class="nav-item <%= active_class(backoffice_doctors_path) %>">
+        <%= link_to backoffice_doctors_path, class: 'nav-link' do %>
+          <%= t('backoffice_menu.doctors') %>
+        <% end %>
+      </li>
+      <li class="nav-item <%= active_class(backoffice_specializations_path) %>">
+        <%= link_to backoffice_specializations_path, class: 'nav-link' do %>
+          <%= t('backoffice_menu.specializations') %>
+        <% end %>
+      </li>
+      <li class="nav-item <%= active_class(backoffice_secretaries_path) %>">
+        <%= link_to backoffice_secretaries_path, class: 'nav-link' do %>
+          <%= t('backoffice_menu.secretaries') %>
+        <% end %>
+      </li>
+      <li class="nav-item dropdown navbar-toggler-right">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_admin.name %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <%= link_to destroy_admin_session_path, class: 'dropdown-item', method: :delete do %>
+            <%= t('backoffice_menu.exit') %>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
 </nav>

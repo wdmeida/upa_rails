@@ -22,12 +22,12 @@
         </li>
         <li class="nav-item dropdown navbar-toggler-right">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            admin@admin.com
+            <%= current_secretary.name %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <%= link_to destroy_secretary_session_path, class: 'dropdown-item', method: :delete do %>
+              <%= t('upa_menu.exit') %>
+            <% end %>
           </div>
         </li>
       </ul>
