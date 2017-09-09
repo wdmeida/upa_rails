@@ -19,8 +19,8 @@
 <div class="row">
   <div class="col-lg-12" style="margin-top: 15px; margin-bottom: 15px;">
     <div class="float-right">
-      <%= link_to new_upa_patient_path, class: 'btn btn-primary' do %>
-        Cadastrar
+      <%= link_to new_upa_patient_path, class: 'btn btn-primary', role: 'button' do %>
+        <%= t('buttons.new') %>
       <% end %>
     </div>
   </div>
@@ -34,7 +34,7 @@
           <th>#</th>
           <th><%= @patients.model.human_attribute_name('name') %></th>
           <th><%= @patients.model.human_attribute_name('birth') %></th>
-          <th><%= @patients.model.human_attribute_name('phone') %></th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -43,7 +43,11 @@
             <td scope='row'><%= patient.id %></td>
             <td><%= patient.name %></td>
             <td><%= l(patient.birth) %></td>
-            <td><%= patient.phone %></td>
+            <td>
+              <%= link_to edit_upa_patient_path(patient), class: 'btn btn-outline-info' do %>
+                <%= t('buttons.edit') %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
