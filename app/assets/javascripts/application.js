@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/i18n/datepicker-pt-BR
+//= require datetimepicker
 //= require jquery_ujs
 //= require tether
 //= require bootbox
@@ -53,4 +54,16 @@ $.rails.allowAction = function(element) {
 // Activated datepicker
 $(function() {
   $('.datepicker').datepicker();
+});
+
+// Activated datetimepicker
+$(function() {
+  $.datetimepicker.setLocale('pt-BR');
+
+  $('.datetimepicker').datetimepicker({
+    format: 'd/m/Y H:i',
+    startDate: new Date(),
+    defaultDate: new Date(),
+    value: new Date()
+  });
 });

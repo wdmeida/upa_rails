@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 20170909193458) do
     t.string   "name"
     t.date     "birth"
     t.string   "phone"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.datetime "datetime_entry"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.datetime "datetime_entry", default: '2017-09-11 12:55:34'
     t.integer  "genre"
     t.text     "info"
   end

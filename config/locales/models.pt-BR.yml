@@ -43,3 +43,6 @@
         name: Nome
         birth: Data de Aniversário
         phone: Telefone
+        datetime_entry: Data/Hora entrada
+        info: Informações
+        genre: Gênero

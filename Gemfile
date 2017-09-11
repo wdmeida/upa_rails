@@ -22,6 +22,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
 gem 'rails-i18n'
+# Help ActiveRecord::Enum feature to work fine with I18n and simple_form. 
+gem 'enum_help'
 # Flexible authentication solution for Rails with Warden. 
 gem 'devise'
 # Translations for the devise gem 
@@ -45,6 +47,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether'
   # BootboxJS. Library for box confirmation and messages.
   gem 'rails-assets-bootbox'
+  # jQuery plugin select date and time.
+  gem 'rails-assets-datetimepicker'
 end
 
 # Use jquery as the JavaScript library

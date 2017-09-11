@@ -1,0 +1,6 @@
+'pt-BR':
+  enums:
+    patient:
+      genre:
+        male: Masculino
+        female: Feminino
