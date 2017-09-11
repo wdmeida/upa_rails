@@ -35,7 +35,10 @@ class Upa::PatientsController < UpaController
     def params_patient
       params.require(:patient).permit(:name,
                                       :birth,
-                                      :phone)
+                                      :phone,
+                                      :genre,
+                                      :info,
+                                      :datetime_entry)
     end
 
     def set_patient

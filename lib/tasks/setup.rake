@@ -64,7 +64,10 @@ namespace :setup do
       Patient.create!(
         name: Faker::Name.name,     
         birth: Faker::Date.birthday(1, 80),
-        phone: Faker::PhoneNumber.phone_number     
+        phone: Faker::PhoneNumber.phone_number,
+        genre: [:male, :female].sample,
+        info: Faker::Lorem.sentence([2, 3, 4].sample),
+        datetime_entry: DateTime.current     
       )
     end
 
