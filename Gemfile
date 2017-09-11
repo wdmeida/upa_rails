@@ -67,10 +67,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry-rails'
-  # Gem responsável por gerar informações para testes.
+  # RSpec for Rails-3
+  gem 'rspec-rails', '~> 3.6'
+  # A library for generating fake data such as names, addresses, and phone numbers. 
   gem 'faker'
-  # Rails application preloader
-  gem "spring"
 end
 
 group :test do
@@ -80,10 +80,6 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   # factory_girl is a fixtures replacement with a straightforward definition syntax
   gem 'factory_girl_rails'
-  # A library for generating fake data such as names, addresses, and phone numbers. 
-  gem 'faker'
-  # RSpec for Rails-3
-  gem 'rspec-rails', '~> 3.6'
   # Adding methods from controller-testing
   gem 'rails-controller-testing'
 end
@@ -95,6 +91,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Preloader from rspec
+  gem 'spring-commands-rspec'
   # Better error page for Rack apps
   gem "better_errors"
   # Manage Procfile-based applications

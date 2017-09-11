@@ -33,7 +33,7 @@
         <tr>
           <th>#</th>
           <th><%= @patients.model.human_attribute_name('name') %></th>
-          <th><%= @patients.model.human_attribute_name('birth') %></th>
+          <th><%= @patients.model.human_attribute_name('datetime_entry') %></th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -42,7 +42,7 @@
           <tr>
             <td scope='row'><%= patient.id %></td>
             <td><%= patient.name %></td>
-            <td><%= l(patient.birth) %></td>
+            <td><%= l(patient.datetime_entry) %></td>
             <td>
               <%= link_to edit_upa_patient_path(patient), class: 'btn btn-outline-info' do %>
                 <%= t('buttons.edit') %>

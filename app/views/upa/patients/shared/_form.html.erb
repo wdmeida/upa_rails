@@ -20,7 +20,7 @@
         </div>
     </div>
 <% end %>
-    
+
 <%= form_for([:upa, @patient]) do |f| %>
     
     <div class="form-group row">
@@ -31,24 +31,39 @@
     </div>
 
     <div class="form-group row">
-        <%= f.label :name, :class => 'col-sm-3 col-form-label' %>
+        <%= f.label :genre, :class => 'col-sm-3 col-form-label' %>
         <div class="col-sm-9">
-            <%= f.text_field :name, :class => 'form-control' %>            
+            <%= collection_select :patient, :genre, options_for_genres, :id, :description, 
+                {}, {:class => 'form-control'} %>
+        </div>              
+    </div>
+
+    <div class="form-group row">
+        <%= f.label :phone, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-5">
+            <%= f.text_field :phone, :class => 'form-control' %>            
         </div>              
     </div>
 
     <div class="form-group row">
         <%= f.label :datetime_entry, :class => 'col-sm-3 col-form-label' %>
-        <div class="col-sm-9">
+        <div class="col-sm-5">
             <%= datetime_field @patient, :datetime_entry, {:class => 'form-control datetimepicker'} %>                    
         </div>              
     </div>
 
     <div class="form-group row">
         <%= f.label :birth, :class => 'col-sm-3 col-form-label' %>
-        <div class="col-sm-9">
+        <div class="col-sm-5">
             <%= f.text_field :birth, :class => 'form-control datepicker', :value => (l(@patient.birth) unless @patient.birth.blank?) %>                    
         </div>              
+    </div>
+
+    <div class="form-group row">
+        <%= f.label :info, :class => 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+            <%= f.text_area :info, :class => 'form-control', :rows => 4, :placeholder => 'Mais informações...' %>
+        </div>
     </div>
 
     <div class="form-group row">
