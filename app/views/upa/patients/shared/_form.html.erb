@@ -48,7 +48,8 @@
     <div class="form-group row">
         <%= f.label :datetime_entry, :class => 'col-sm-3 col-form-label' %>
         <div class="col-sm-5">
-            <%= datetime_field @patient, :datetime_entry, {:class => 'form-control datetimepicker'} %>                    
+            <%= datetime_field :patient, :datetime_entry, { :class => 'form-control datetimepicker', 
+                            :value => (l(@patient.datetime_entry) unless @patient.datetime_entry.blank?) }%>                    
         </div>              
     </div>
 

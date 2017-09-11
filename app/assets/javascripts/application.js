@@ -62,8 +62,6 @@ $(function() {
 
   $('.datetimepicker').datetimepicker({
     format: 'd/m/Y H:i',
-    startDate: new Date(),
-    defaultDate: new Date(),
-    value: new Date()
+    startDate: new Date()
   });
 });
