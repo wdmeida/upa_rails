@@ -11,8 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery-ui/widgets/datepicker
-//= require jquery-ui/i18n/datepicker-pt-BR
 //= require datetimepicker
 //= require jquery_ujs
 //= require tether
@@ -51,17 +49,29 @@ $.rails.allowAction = function(element) {
   return false;
 }
 
-// Activated datepicker
-$(function() {
-  $('.datepicker').datepicker();
-});
+// // Activated datepicker
+// $(function() {
+//   $('.datepicker').datepicker();
+// });
 
 // Activated datetimepicker
 $(function() {
   $.datetimepicker.setLocale('pt-BR');
 
-  $('.datetimepicker').datetimepicker({
-    format: 'd/m/Y H:i',
-    startDate: new Date()
+  $('.datetimepicker_datenow').datetimepicker({
+    format: 'd/m/Y',
+    startDate: new Date(),
+    timepicker: false
+  });
+
+  $('.datetimepicker_timenow').datetimepicker({
+    format: 'H:i',
+    datepicker: false    
+  });
+
+  $('.datetimepicker_birth').datetimepicker({
+    format: 'd/m/Y',
+    startDate: new Date(),
+    timepicker: false
   });
 });
