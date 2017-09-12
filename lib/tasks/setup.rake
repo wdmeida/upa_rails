@@ -67,7 +67,8 @@ namespace :setup do
         phone: Faker::PhoneNumber.phone_number,
         genre: [:male, :female].sample,
         info: Faker::Lorem.sentence([2, 3, 4].sample),
-        datetime_entry: DateTime.current     
+        time_entry: DateTime.current,
+        date_entry: Date.current     
       )
     end
 
