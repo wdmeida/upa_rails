@@ -7,11 +7,13 @@
 
 <div class="row">
   <div class="col-lg-12">
+    <%= search_form_for @q, { url: upa_patients_path } do |f| %>  
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Pesquisar...">
+      <%= f.search_field :name_cont, class: 'form-control', placeholder: 'Pesquisar' %>
       <span class="input-group-btn">
-        <button class="btn btn-outline-danger" type="button">Pesquisar!</button>
+        <%= f.submit t('buttons.search'), class: 'btn btn-outline-danger' %>
       </span>
+      <% end %>
     </div>
   </div>
 </div>

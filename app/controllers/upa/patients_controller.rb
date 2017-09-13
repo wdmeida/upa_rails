@@ -1,8 +1,11 @@
 class Upa::PatientsController < UpaController
   before_action :set_patient, only: [:edit, :update]
 
-  def index 
-    @patients = Patient.page(params[:page]).per(Constants::QTT_PER_PAGE)
+  def index
+    @q = Patient.ransack(params[:q])
+    @patients = @q.result
+                  .page(params[:page])
+                  .per(Constants::QTT_PER_PAGE)
   end
 
   def new

@@ -36,6 +36,8 @@ gem 'bootstrap4-kaminari-views'
 gem 'kaminari-i18n'
 # jQuery UI for the Rails asset pipeline 
 gem 'jquery-ui-rails'
+# Object-based searching
+gem 'ransack'
 
 # Rails Assets
 source 'https://rails-assets.org' do
