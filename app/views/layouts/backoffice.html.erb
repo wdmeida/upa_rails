@@ -17,16 +17,8 @@
       </div>
 
       <%= javascript_include_tag 'application' %>  
-      <% if notice %>
-        <script>
-            $.notify("<%= notice %>", "success");
-        </script>
-      <% end %>
 
-      <% if alert %>
-        <script>
-          $.notify("<%= alert %>", "error");
-        </script>
+      <%= render partial: 'layouts/shared/notifications' %>
       <% end %>
   </body>
 </html>

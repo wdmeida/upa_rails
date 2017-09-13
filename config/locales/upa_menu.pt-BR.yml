@@ -1,5 +1,6 @@
 'pt-BR':
   upa_menu:
+    home: Início
     patients: Pacientes
     appointment: Consultas
     exit: Sair

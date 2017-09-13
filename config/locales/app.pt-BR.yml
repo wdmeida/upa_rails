@@ -1,0 +1,4 @@
+'pt-BR':
+  app:
+    name: Unidade de Pronto Atendimento
+    saudation: Seja bem-vindo(a) %{user}!!!

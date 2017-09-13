@@ -49,11 +49,6 @@ $.rails.allowAction = function(element) {
   return false;
 }
 
-// // Activated datepicker
-// $(function() {
-//   $('.datepicker').datepicker();
-// });
-
 // Activated datetimepicker
 $(function() {
   $.datetimepicker.setLocale('pt-BR');

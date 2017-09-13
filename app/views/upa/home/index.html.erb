@@ -1,1 +1,49 @@
-<h1>Cheguei na index, finalmente</h1>
+<div class="jumbotron">
+  <h1><%= t('app.name') %></h1>
+
+  <p class="lead">
+    <%= t 'app.saudation', :user => current_secretary.name %>
+  </p>
+  <p>
+    <%= l DateTime.now, format: :long %>
+  </p>
+  <p>
+    <a href="#" class="btn btn-lg btn-success" role="button">Get started today</a>
+  </p>
+</div>
+
+<div class="row"> 
+  <div class="col-lg-4">
+    <h2>Heading</h2>
+    <p>
+      A Upa é pa é pa é pa é pa épa é pa é pa é pa é pa é pa é pa é vpa é pa é pa é pa é
+      pa é pa é pa é pa é pa é pa é pa é pa év pa é pa é pa é pa évv pa é v v pa évpa épa é
+      pa é pa é pa é v v.
+    </p>
+    <p>
+      <a href="#" class="btn btn-primary">View Details</a>
+    </p>
+  </div>
+  <div class="col-lg-4">
+      <h2>Heading</h2>
+      <p>
+        A Upa é pa é pa é pa é pa épa é pa é pa é pa é pa é pa é pa é vpa é pa é pa é pa é
+        pa é pa é pa é pa é pa é pa é pa é pa év pa é pa é pa é pa évv pa é v v pa évpa épa é
+        pa é pa é pa é v v.
+      </p>
+      <p>
+        <a href="#" class="btn btn-primary">View Details</a>
+      </p>
+    </div>
+    <div class="col-lg-4">
+        <h2>Heading</h2>
+        <p>
+          A Upa é pa é pa é pa é pa épa é pa é pa é pa é pa é pa é pa é vpa é pa é pa é pa é
+          pa é pa é pa é pa é pa é pa é pa é pa év pa é pa é pa é pa évv pa é v v pa évpa épa é
+          pa é pa é pa é v v.
+        </p>
+        <p>
+          <a href="#" class="btn btn-primary">View Details</a>
+        </p>
+      </div>
+</div>

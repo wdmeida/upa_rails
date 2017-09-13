@@ -21,7 +21,7 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.0.0'
 # Help ActiveRecord::Enum feature to work fine with I18n and simple_form. 
 gem 'enum_help'
 # Flexible authentication solution for Rails with Warden. 
