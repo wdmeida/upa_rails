@@ -1,85 +1,77 @@
 <div class="row">
-    <h3 class="mx-auto">
-        <%= t('activerecord.models.patient.one') %>
-        <small class="text-muted"><%= action %></small>
-    </h3>    
+  <h3 class="mx-auto">
+    <%= t('activerecord.models.patient.one') %>
+    <small class="text-muted"><%= action %></small>
+  </h3>    
 </div>
 
 <% if @patient.errors.any? %>
-    <div class="row">
-        <div class="col">
-            <div class="alert alert-danger" role="alert">            
-                <ul class="list-group">
-                    <% @patient.errors.full_messages.each do |message| %>
-                        <li class="list-group-item">
-                            <strong><%= message %></strong>
-                        </li>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col">
+      <div class="alert alert-danger" role="alert">            
+        <ul class="list-group">
+          <% @patient.errors.full_messages.each do |message| %>
+            <li class="list-group-item">
+              <strong><%= message %></strong>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
+  </div>
 <% end %>
 
 <%= form_for([:upa, @patient]) do |f| %>
-    
-    <div class="form-group row">
-        <%= f.label :name, :class => 'col-sm-3 col-form-label' %>
-        <div class="col-sm-9">
-            <%= f.text_field :name, :class => 'form-control' %>            
-        </div>              
+  <div class="row">  
+    <div class="form-group col-md-9">
+      <%= f.label :name %>
+      <%= f.text_field :name, :class => 'form-control' %>            
     </div>
 
-    <div class="form-group row">
-        <%= f.label :genre, :class => 'col-sm-3 col-form-label' %>
-        <div class="col-sm-9">
-            <%= collection_select :patient, :genre, options_for_genres, :id, :description, 
-                {}, {:class => 'form-control'} %>
-        </div>              
+    <div class="form-group col-md-3">
+      <%= f.label :phone %>
+      <%= f.text_field :phone, :class => 'form-control' %>            
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-3">
+      <%= f.label :date_entry %>
+      <%= f.text_field :date_entry, :class => 'form-control datetimepicker_datenow', 
+        :value => (l(@patient.date_entry) unless @patient.date_entry.blank?) %>                    
     </div>
 
-    <div class="form-group row">
-        <%= f.label :phone, :class => 'col-sm-3 col-form-label' %>
-        <div class="col-sm-5">
-            <%= f.text_field :phone, :class => 'form-control' %>            
-        </div>              
+    <div class="form-group col-md-3">
+      <%= f.label :time_entry %>
+      <%= f.text_field :time_entry, :class => 'form-control datetimepicker_timenow', 
+        :value => (l(@patient.time_entry) unless @patient.time_entry.blank?) %>                    
     </div>
 
-    <div class="form-group row">
-        <%= f.label :date_entry, :class => 'col-sm-3 col-form-label' %>
-        <div class="col-sm-5">
-            <%= f.text_field :date_entry, :class => 'form-control datetimepicker_datenow', 
-                            :value => (l(@patient.date_entry) unless @patient.date_entry.blank?) %>                    
-        </div>              
+    <div class="form-group col-md-3">
+      <%= f.label :birth %>
+      <%= f.text_field :birth, :class => 'form-control datetimepicker_birth', 
+          :value => (l(@patient.birth) unless @patient.birth.blank?) %>                    
     </div>
 
-    <div class="form-group row">
-        <%= f.label :time_entry, :class => 'col-sm-3 col-form-label' %>
-        <div class="col-sm-5">
-            <%= f.text_field :time_entry, :class => 'form-control datetimepicker_timenow', 
-                            :value => (l(@patient.time_entry) unless @patient.time_entry.blank?) %>                    
-        </div>              
+    <div class="form-group col-md-3">
+      <%= f.label :genre %>
+      <%= collection_select :patient, :genre, options_for_genres, :id, :description, {}, {:class => 'form-control'} %>
     </div>
+  </div>
 
-    <div class="form-group row">
-        <%= f.label :birth, :class => 'col-sm-3 col-form-label' %>
-        <div class="col-sm-5">
-            <%= f.text_field :birth, :class => 'form-control datetimepicker_birth', 
-                            :value => (l(@patient.birth) unless @patient.birth.blank?) %>                    
-        </div>              
+  <div class="row">
+    <div class="form-group col-md-12">
+      <%= f.label :info %>
+      <%= f.text_area :info, :class => 'form-control', :rows => 4, :placeholder => 'Mais informações...' %>
     </div>
+  </div>
 
-    <div class="form-group row">
-        <%= f.label :info, :class => 'col-sm-3 col-form-label' %>
-        <div class="col-sm-9">
-            <%= f.text_area :info, :class => 'form-control', :rows => 4, :placeholder => 'Mais informações...' %>
-        </div>
+  <div class="row">
+    <div class="form-group col-md-12">
+      <%= f.submit t('buttons.save'), :class => "btn btn-primary" %>
+      <%= link_to upa_patients_path, :class => 'btn btn-secondary' do %>
+        <%= t('buttons.back') %>
+      <% end %>
     </div>
-
-    <div class="form-group row">
-        <div class="offset-sm-3 col-sm-9">
-            <%= f.submit t('buttons.save'), :class => "btn btn-primary" %>            
-        </div>
-    </div>
-
+  </div>  
 <% end %>
