@@ -28,7 +28,7 @@ namespace :setup do
               crm: Faker::Company.australian_business_number,
               specialization_id: [1,2,3,4,5].sample,
               phone: Faker::PhoneNumber.phone_number,
-              salary: Faker::Number.decimal(2, 3), 
+              salary: Faker::Number.number(4), 
               password: "123456",
               password_confirmation: "123456",
               
