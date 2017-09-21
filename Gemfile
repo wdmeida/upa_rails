@@ -38,6 +38,8 @@ gem 'kaminari-i18n'
 gem 'jquery-ui-rails'
 # Object-based searching
 gem 'ransack'
+# Integration of RubyMoney - Money with Rails 
+gem 'money-rails', '~>1'
 
 # Rails Assets
 source 'https://rails-assets.org' do

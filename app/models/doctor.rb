@@ -5,8 +5,10 @@ class Doctor < ApplicationRecord
 
   belongs_to :specialization
 
+  # Gem Money Rails
+  monetize :salary_cents
+
   validates :name, presence: true, length: { minimum: 5 }
-  validates :salary, presence: true
   validates :crm, presence: true, length: { minimum: 5 }
   validates :phone, presence: true
 end

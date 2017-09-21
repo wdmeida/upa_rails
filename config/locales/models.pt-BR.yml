@@ -41,9 +41,9 @@
         password_confirmation: Confirmação de Senha
       patient:
         name: Nome
-        birth: Data de Aniversário
+        birth: Nascimento
         phone: Telefone
-        date_entry: Data da Entrada
-        time_entry: Hora da Entrada
+        date_entry: Data
+        time_entry: Hora
         info: Informações
         genre: Gênero
