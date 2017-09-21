@@ -1,0 +1,2 @@
+module Upa::ConsultationsHelper
+end
