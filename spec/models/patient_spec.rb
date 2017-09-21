@@ -9,4 +9,6 @@ RSpec.describe Patient, type: :model do
   it { is_expected.to validate_presence_of :time_entry }
   it { is_expected.to validate_presence_of :genre }  
   it { is_expected.to define_enum_for(:genre) }
+  it { is_expected.to have_many(:appointments) }
+  it { is_expected.to have_many(:doctors).through(:appointments) }
 end
