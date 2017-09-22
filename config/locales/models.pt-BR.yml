@@ -16,6 +16,9 @@
       patient:
         one: Paciente
         other: Pacientes
+      appointment:
+        one: Atendimento
+        other: Atendimentos
     
     attributes:
       admin:
@@ -43,7 +46,11 @@
         name: Nome
         birth: Nascimento
         phone: Telefone
-        date_entry: Data
-        time_entry: Hora
         info: Informações
         genre: Gênero
+      appointment:
+        patient_id: ID Paciente
+        doctor_id: ID Médico
+        datetime_appointment: Data/Hora Atendimento
+        diagnostic: Diagnóstico
+        appointment_finished: Atendimento finalizado?

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   namespace :upa do
     get 'home/index'
     resources :patients, except: [:delete]
+    resources :appointments, except: [:delete]
   end
   
   get 'backoffice', to: 'backoffice/dashboard#index' 

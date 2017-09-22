@@ -49,6 +49,9 @@
               <%= link_to edit_upa_patient_path(patient), class: 'btn btn-outline-info' do %>
                 <%= t('buttons.edit') %>
               <% end %>
+              <%= link_to new_upa_appointment_path(:patient_id => patient.id), class: 'btn btn-outline-warning' do %>
+                <%= t('buttons.appointment') %>
+              <% end %>
             </td>
           </tr>
         <% end %>

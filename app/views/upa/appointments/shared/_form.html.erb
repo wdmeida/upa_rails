@@ -1,0 +1,23 @@
+<div class="row">
+  <h3 class="mx-auto">
+    <%= t('activerecord.models.appointment.one') %>
+    <small class="text-muted"><%= action %></small>
+  </h3>
+</div>
+<div class="row">
+  <h4>
+    <%= @patient.name %>
+  </h4>
+</div>
+<%= form_for([:upa, @appointment]) do |f| %>
+  <div class="row">
+    <div class="form-group col-md-12 <%= has_errors?(@appointment, :datetime_appointment, 'has-danger') %>">
+      <%= f.label :datetime_appointment, :class => 'form-control-label' %>
+      <%= f.text_field :datetime_appointment, :class => 'form-control datetimepicker_appointment',
+        :value => (l(@appointment.datetime_appointment) unless @appointment.datetime_appointment.blank?) %>
+      <% if !@appointment.errors.messages[:datetime_appointment].empty? %>
+        <div class="form-control-feedback"><%= @appointment.errors.full_messages_form(:datetime_appointment)[0] %></div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
