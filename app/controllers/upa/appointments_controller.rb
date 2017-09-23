@@ -5,6 +5,9 @@ class Upa::AppointmentsController < UpaController
     @appointment = Appointment.new 
   end
 
+  def create
+  end
+
   private
     def set_current_patient
       @patient = Patient.find(params[:patient_id])
