@@ -2,6 +2,13 @@ class Upa::AppointmentsController < UpaController
   before_action :set_current_patient, only: [:new]
   before_action :set_specializations, only: [:new]
 
+  def index
+    @q = Appointment.ransack(params[:q])
+    @appointments = @q.result.includes(:patient)
+                              .page(params[:page])
+                              .per(Constants::QTT_PER_PAGE)
+  end
+
   def new
     @appointment = Appointment.new 
   end

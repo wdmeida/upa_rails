@@ -1,0 +1,48 @@
+<div class="row">
+  <h3 class="mx-auto">
+    <%= @appointments.model_name.human(count: @appointments.length) %>
+    <small class="text-muted"><%= t('labels.listed') %></small>
+  </h3>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <%= search_form_for @q, { url: upa_appointments_path } do |f| %>
+      <div class="input-group">
+        <%= f.search_field :datetime_appointment, class: 'form-control', placeholder: 'Pesquisar' %>
+        <span class="input-group-btn">
+          <%= f.submit t('buttons.search'), class: 'btn btn-outline-danger' %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class='text-center'><%= @appointments.model.human_attribute_name('patient') %></th>
+          <th class='text-center'><%= @appointments.model.human_attribute_name('datetime_appointment') %></th>
+          <th class='text-center'><%= @appointments.model.human_attribute_name('appointment_finished') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @appointments.each do |appointment| %>
+          <tr>
+            <td scope='row'><%= appointment.id %></td>
+            <td class='text-center'><%= appointment.patient.name %></td>
+            <td class='text-center'><%= l(appointment.datetime_appointment, :format => :long) %></td>
+            <td class='text-center'>
+                <%= check_box appointment.appointment_finished %>                
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @appointments, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>
+

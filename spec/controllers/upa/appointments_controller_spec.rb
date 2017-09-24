@@ -6,6 +6,24 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
   let!(:appointments) { create_list(:appointment, 10) }
   let!(:appointment) { appointments.last }
 
+  describe 'GET #index' do
+    context 'when secretary is logged in' do
+      login_secretary
+
+      before { get :index }
+
+      it { is_expected.to respond_with(:ok) }
+      it { is_expected.to render_with_layout(:upa) }
+      it { is_expected.to render_template(:index) }
+    end
+
+    context 'when secretary is logged out' do
+      before { get :index }
+
+      it { is_expected.to redirect_to new_secretary_session_path }
+    end
+  end
+
   describe 'GET #new' do
     context 'when secretary is logged in' do
       login_secretary
