@@ -11,3 +11,5 @@
     creating: Criando
     editing: Editando
     updating: Atualizando
+    appointment:
+      created_with: Consulta de %{item} agendada com sucesso!

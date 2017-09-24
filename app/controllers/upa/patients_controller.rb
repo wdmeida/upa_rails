@@ -40,9 +40,7 @@ class Upa::PatientsController < UpaController
                                       :birth,
                                       :phone,
                                       :genre,
-                                      :info,
-                                      :date_entry,
-                                      :time_entry)
+                                      :info)
     end
 
     def set_patient

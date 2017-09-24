@@ -7,11 +7,32 @@ class Upa::AppointmentsController < UpaController
   end
 
   def create
+    @appointment = Appointment.create(params_appointment)
+
+    unless @appointment.errors.any?
+      redirect_to upa_appointments_path, notice: I18n.t('messages.appointment.created_with', 
+                                                        :item => @appointment.patient.name)
+    else
+      redirect_to new_upa_appointment_path, :patient_id => params[:patient_id]
+    end
   end
 
   private
+    def params_appointment
+      params.require(:appointment).permit(:datetime_appointment,
+                                          :appointment_finished,
+                                          :diagnostic,
+                                          :patient_id,
+                                          :specialization_id,
+                                          :doctor_id)
+    end
+
     def set_current_patient
-      @patient = Patient.find(params[:patient_id])
+      begin
+        @patient = Patient.find(params[:patient_id])        
+      rescue => exception
+        head :not_found
+      end
     end
 
     def set_specializations

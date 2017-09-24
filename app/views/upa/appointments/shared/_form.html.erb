@@ -15,6 +15,7 @@
 <%= form_for([:upa, @appointment]) do |f| %>
 
   <%= f.hidden_field :patient_id, :value => @patient.id %>
+  
   <div class="row">
     <div class="form-group col-md-4 <%= has_errors?(@appointment, :datetime_appointment, 'has-danger') %>">
       <%= f.label :datetime_appointment, :class => 'form-control-label' %>
@@ -25,23 +26,23 @@
       <% end %>
     </div>
 
-    <div class="form-group col-md-4 <%= has_errors?(@appointment, :specialization_id, 'has-danger') %>">
-      <%= f.label :specialization_id, :class => 'form-control-label' %>
+    <div class="form-group col-md-4 <%= has_errors?(@appointment, :specialization, 'has-danger') %>">
+      <%= f.label :specialization, :class => 'form-control-label' %>
       <%= collection_select(:appointment, :specialization_id, @specializations, :id, :description,
                             { :prompt => t('labels.selected_specialization') }, 
                             { :class => 'form-control' } ) %>
-      <% if !@appointment.errors.messages[:specialization_id].empty? %>
-        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:specialization_id)[0] %></div>  
+      <% if !@appointment.errors.messages[:specialization].empty? %>
+        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:specialization)[0] %></div>  
       <% end %>
     </div>
 
-    <div class="form-group col-md-4 <%= has_errors?(@appointment, :doctor_id, 'has-danger') %>">
-      <%= f.label :doctor_id, :class => 'form-control-label' %>
+    <div class="form-group col-md-4 <%= has_errors?(@appointment, :doctor, 'has-danger') %>">
+      <%= f.label :doctor, :class => 'form-control-label' %>
       <%= grouped_collection_select(:appointment, :doctor_id, @specializations, :doctors, :description, :id, :name,
                             { :prompt => t('labels.selected_doctor') }, 
                             { :class => 'form-control' } ) %>
-      <% if !@appointment.errors.messages[:doctor_id].empty? %>
-        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:doctor_id)[0] %></div>  
+      <% if !@appointment.errors.messages[:doctor].empty? %>
+        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:doctor)[0] %></div>  
       <% end %>
     </div>
   </div>

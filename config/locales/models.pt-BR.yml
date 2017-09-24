@@ -49,9 +49,9 @@
         info: Informações
         genre: Gênero
       appointment:
-        patient_id: Paciente
-        doctor_id: Médico
-        specialization_id: Especialização
+        patient: Paciente
+        doctor: Médico
+        specialization: Especialização
         datetime_appointment: Data/Hora Atendimento
         diagnostic: Diagnóstico
         appointment_finished: Atendimento finalizado?
