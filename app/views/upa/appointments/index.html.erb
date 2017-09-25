@@ -36,8 +36,12 @@
             <td class='text-center'><%= appointment.patient.name %></td>
             <td class='text-center'><%= l(appointment.datetime_appointment, :format => :long) %></td>
             <td class='text-center'>
-                <%= link_to '#', :class => 'btn btn-info' do %>
+                <%= link_to edit_upa_appointment_path(appointment), :class => 'btn btn-info' do %>
                   <%= t('buttons.edit') %>
+                <% end %>
+                <%= link_to upa_appointment_path(appointment), method: :delete, :class => 'btn btn-danger',
+                  data: {confirm: t('messages.confirm_with', :item => appointment.patient.name)} do %>
+                  <%= t('buttons.delete') %>
                 <% end %>
             </td>
           </tr>

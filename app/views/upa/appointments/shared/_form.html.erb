@@ -22,7 +22,7 @@
       <%= f.text_field :datetime_appointment, :class => 'form-control datetimepicker_appointment',
         :value => (l(@appointment.datetime_appointment) unless @appointment.datetime_appointment.blank?) %>
       <% if !@appointment.errors.messages[:datetime_appointment].empty? %>
-        <div class="form-control-feedback"><%= @appointment.errors.full_messages_form(:datetime_appointment)[0] %></div>
+        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:datetime_appointment)[0] %></div>
       <% end %>
     </div>
 

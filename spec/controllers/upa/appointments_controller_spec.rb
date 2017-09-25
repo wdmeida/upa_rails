@@ -72,7 +72,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
     context 'when secretary is logged in' do
       login_secretary
 
-      before { get :edit, params: { id: appointment.id }, headers: {} }
+      before { get :edit, params: { id: appointment.id } }
 
       context 'with valid params' do
         it { is_expected.to respond_with(:ok) }
@@ -88,6 +88,66 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
 
     context 'when secretary is logged out' do
       before { get :edit, params: { id: appointment.id }, headers: {} }
+
+      it { is_expected.to redirect_to new_secretary_session_path }
+    end
+  end
+
+  describe 'PUT #update' do
+    let(:appointment_attr) do
+      { 
+        :appointment_finished => true   
+      }
+    end
+
+    context 'when secretary is logged in' do
+      login_secretary
+
+      context 'with valid params' do
+        before do
+          get :update, params: { id: appointment.id, appointment: appointment_attr }, headers: {}
+          appointment.reload
+        end
+
+        it { is_expected.to respond_with(:redirect) }
+        it { expect(appointment.appointment_finished).to eq(appointment_attr[:appointment_finished]) }
+        it { is_expected.to redirect_to upa_appointments_path }
+      end
+
+      context 'with invalid params' do
+        before { get :update, params: { id:appointment.id, appointment: { datetime_appointment: nil } }, headers: {} }
+
+        it { is_expected.to render_template(:edit) }
+      end
+    end
+
+    context 'when secretary is logged out' do
+      before do
+        get :update, params: { id: appointment.id, appointment: appointment_attr }, headers: {}
+      end
+
+      it { is_expected.to redirect_to new_secretary_session_path }
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    context 'when secretary is logged in' do
+      login_secretary
+
+      context 'with appointment is valid' do
+        before { delete :destroy, params: { id: appointment.id }, headers: {} }
+
+        it { is_expected.to respond_with(:redirect) }
+
+        it 'removes appointment from dabasase' do
+          expect(Appointment.all).not_to include appointment
+          expect { appointment.reload }.to raise_error ActiveRecord::RecordNotFound
+        end
+      end
+    end
+
+    context 'when secretary is logged out' do
+      before { delete :destroy, params: { id: appointment.id }, headers: {} }
 
       it { is_expected.to redirect_to new_secretary_session_path }
     end

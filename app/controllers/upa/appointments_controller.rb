@@ -1,7 +1,7 @@
 class Upa::AppointmentsController < UpaController
-  before_action :set_current_patient, only: [:new, :edit]
-  before_action :set_specializations, only: [:new]
-  before_action :set_appointment, only: [:edit]
+  before_action :set_current_patient, only: [:new]
+  before_action :set_specializations, only: [:new, :edit, :update]
+  before_action :set_appointment, only: [:destroy, :edit, :update]
 
   def index
     @q = Appointment.ransack(params[:q])
@@ -11,7 +11,7 @@ class Upa::AppointmentsController < UpaController
   end
 
   def new
-    @appointment = Appointment.new 
+    @appointment = Appointment.new
   end
 
   def create
@@ -21,11 +21,27 @@ class Upa::AppointmentsController < UpaController
       redirect_to upa_appointments_path, notice: I18n.t('messages.appointment.created_with', 
                                                         :item => @appointment.patient.name)
     else
-      redirect_to new_upa_appointment_path, :patient_id => params[:patient_id]
+      redirect_to new_upa_appointment_path(:patient_id => params[:appointment][:patient_id])
     end
   end
 
   def edit
+  end
+
+  def destroy
+    if @appointment.destroy
+      redirect_to upa_appointments_path, notice: I18n.t('messages.destroyed_with', :item => @patient.name)
+    else
+      render :index
+    end
+  end
+
+  def update
+    if @appointment.update(params_appointment)
+      redirect_to upa_appointments_path, notice: I18n.t('messages.updated_with', :item => @appointment.patient.name)
+    else
+      render :edit
+    end
   end
 
   private
@@ -40,7 +56,7 @@ class Upa::AppointmentsController < UpaController
 
     def set_current_patient
       begin
-        @appointment = Appointment.find(params[:patient_id])        
+        @patient = Patient.find(params[:patient_id])        
       rescue => exception
         head :not_found
       end
@@ -53,6 +69,7 @@ class Upa::AppointmentsController < UpaController
     def set_appointment
       begin
         @appointment = Appointment.find(params[:id])
+        @patient = @appointment.patient
       rescue => exception
         head :not_found
       end
