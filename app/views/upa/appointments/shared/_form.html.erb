@@ -62,7 +62,7 @@
       <%= f.text_area :diagnostic, :class => 'form-control', :rows => 4,
         :placeholder => 'Mais informações...' %>
       <% if !@appointment.errors.messages[:diagnostic].empty? %>
-        <div class="form-control-feedback"><%= @appointment.errors.full_messages_form(:diagnostic)[0] %></div>
+        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:diagnostic)[0] %></div>
       <% end %>
     </div>
   </div>
@@ -70,7 +70,7 @@
   <div class="row">
     <div class="form-group col-md-12">
       <%= f.submit t('buttons.save'), :class => 'btn btn-primary' %>
-      <%= link_to upa_appointments_path, :class => 'btn btn-secundary' do %>
+      <%= link_to upa_appointments_path, :class => 'btn btn-secondary' do %>
         <%= t('buttons.back') %>
       <% end %>
     </div>
