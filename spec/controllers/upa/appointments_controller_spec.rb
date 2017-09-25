@@ -67,4 +67,29 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
       end
     end
   end
+
+  describe 'GET #edit' do
+    context 'when secretary is logged in' do
+      login_secretary
+
+      before { get :edit, params: { id: appointment.id }, headers: {} }
+
+      context 'with valid params' do
+        it { is_expected.to respond_with(:ok) }
+        it { is_expected.to render_template(:edit) }
+      end
+
+      context 'with invalid params' do
+        before { get :edit, params: { id: 9999999999 }, headers: {} }
+
+        it { is_expected.to respond_with(:not_found) }
+      end
+    end
+
+    context 'when secretary is logged out' do
+      before { get :edit, params: { id: appointment.id }, headers: {} }
+
+      it { is_expected.to redirect_to new_secretary_session_path }
+    end
+  end
 end

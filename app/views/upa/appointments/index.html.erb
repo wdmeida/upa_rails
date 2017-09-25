@@ -26,7 +26,7 @@
           <th>#</th>
           <th class='text-center'><%= @appointments.model.human_attribute_name('patient') %></th>
           <th class='text-center'><%= @appointments.model.human_attribute_name('datetime_appointment') %></th>
-          <th class='text-center'><%= @appointments.model.human_attribute_name('appointment_finished') %></th>
+          <th class='text-center'><%= t('labels.actions') %></th>
         </tr>
       </thead>
       <tbody>
@@ -36,7 +36,9 @@
             <td class='text-center'><%= appointment.patient.name %></td>
             <td class='text-center'><%= l(appointment.datetime_appointment, :format => :long) %></td>
             <td class='text-center'>
-                <%= check_box appointment.appointment_finished %>                
+                <%= link_to '#', :class => 'btn btn-info' do %>
+                  <%= t('buttons.edit') %>
+                <% end %>
             </td>
           </tr>
         <% end %>

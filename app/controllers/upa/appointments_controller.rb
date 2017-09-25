@@ -1,6 +1,7 @@
 class Upa::AppointmentsController < UpaController
-  before_action :set_current_patient, only: [:new]
+  before_action :set_current_patient, only: [:new, :edit]
   before_action :set_specializations, only: [:new]
+  before_action :set_appointment, only: [:edit]
 
   def index
     @q = Appointment.ransack(params[:q])
@@ -24,6 +25,9 @@ class Upa::AppointmentsController < UpaController
     end
   end
 
+  def edit
+  end
+
   private
     def params_appointment
       params.require(:appointment).permit(:datetime_appointment,
@@ -36,7 +40,7 @@ class Upa::AppointmentsController < UpaController
 
     def set_current_patient
       begin
-        @patient = Patient.find(params[:patient_id])        
+        @appointment = Appointment.find(params[:patient_id])        
       rescue => exception
         head :not_found
       end
@@ -44,5 +48,13 @@ class Upa::AppointmentsController < UpaController
 
     def set_specializations
       @specializations = Specialization.all.includes(:doctors)
+    end
+
+    def set_appointment
+      begin
+        @appointment = Appointment.find(params[:id])
+      rescue => exception
+        head :not_found
+      end
     end
 end
