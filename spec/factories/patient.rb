@@ -5,7 +5,5 @@ FactoryGirl.define do
     phone { Faker::PhoneNumber.phone_number }
     genre { [:male, :female].sample }
     info { Faker::Lorem.sentence([2, 3, 4].sample) }
-    date_entry { Date.current }
-    time_entry { DateTime.current }
   end
 end

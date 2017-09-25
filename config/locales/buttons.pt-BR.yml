@@ -1,5 +1,6 @@
 'pt-BR':
   buttons:
+    appointment: Atendimento
     back: Voltar
     destroy: Excluir
     home: Início

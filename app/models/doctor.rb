@@ -4,6 +4,9 @@ class Doctor < ApplicationRecord
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   belongs_to :specialization
+  
+  has_many :appointments
+  has_many :patients, :through => :appointments
 
   # Gem Money Rails
   monetize :salary_cents

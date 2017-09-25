@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920005351) do
+ActiveRecord::Schema.define(version: 20170923211823) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,6 +28,22 @@ ActiveRecord::Schema.define(version: 20170920005351) do
     t.string   "name"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "patient_id"
+    t.integer  "doctor_id"
+    t.datetime "datetime_appointment"
+    t.text     "diagnostic"
+    t.boolean  "appointment_finished"
+    t.integer  "specialization_id_id"
+    t.integer  "specialization_id"
+    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+    t.index ["patient_id"], name: "index_appointments_on_patient_id"
+    t.index ["specialization_id"], name: "index_appointments_on_specialization_id"
+    t.index ["specialization_id_id"], name: "index_appointments_on_specialization_id_id"
   end
 
   create_table "doctors", force: :cascade do |t|
@@ -61,8 +77,6 @@ ActiveRecord::Schema.define(version: 20170920005351) do
     t.datetime "updated_at", null: false
     t.integer  "genre"
     t.text     "info"
-    t.date     "date_entry"
-    t.datetime "time_entry"
   end
 
   create_table "secretaries", force: :cascade do |t|

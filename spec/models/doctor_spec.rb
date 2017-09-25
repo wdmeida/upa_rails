@@ -11,5 +11,7 @@ RSpec.describe Doctor, type: :model do
   it { is_expected.to validate_presence_of :phone }
   it { is_expected.to validate_presence_of :name }
 
-  it { should belong_to(:specialization) }
+  it { is_expected.to belong_to(:specialization) }
+  it { is_expected.to have_many(:appointments) }
+  it { is_expected.to have_many(:patients).through(:appointments) }
 end

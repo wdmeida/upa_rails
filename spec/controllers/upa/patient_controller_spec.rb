@@ -15,17 +15,17 @@ RSpec.describe Upa::PatientsController, type: :controller do
       it { is_expected.to respond_with(:ok) }
       it { is_expected.to render_with_layout(:upa) }
       it { is_expected.to render_template(:index) }
+
+      it 'assign @patients' do
+        expect( assigns(:patients) ).to eq(patients)
+      end
     end
 
-    it 'assign @patients' do
-      expect( assigns(:patients) ).to eq(@patients)
+    context 'when secretary is logged out' do
+      before { get :index }
+  
+      it { is_expected.to redirect_to new_secretary_session_path }
     end
-  end
-
-  context 'when secretary is logged out' do
-    before { get :index }
-
-    it { is_expected.to redirect_to new_secretary_session_path }
   end
 
   describe 'GET #new' do
