@@ -53,15 +53,9 @@ $.rails.allowAction = function(element) {
 $(function() {
   $.datetimepicker.setLocale('pt-BR');
 
-  $('.datetimepicker_datenow').datetimepicker({
-    format: 'd/m/Y',
-    startDate: new Date(),
-    timepicker: false
-  });
-
-  $('.datetimepicker_timenow').datetimepicker({
-    format: 'H:i',
-    datepicker: false    
+  $('.datetimepicker_appointment').datetimepicker({
+    format: 'd/m/Y H:i',
+    startDate: new Date()
   });
 
   $('.datetimepicker_birth').datetimepicker({

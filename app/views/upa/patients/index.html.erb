@@ -32,22 +32,23 @@
       <thead>
         <tr>
           <th>#</th>
-          <th><%= @patients.model.human_attribute_name('name') %></th>
-          <th><%= @patients.model.human_attribute_name('date_entry') %></th>
-          <th><%= @patients.model.human_attribute_name('time_entry') %></th>
-          <th><%= t('labels.actions') %></th>
+          <th class="text-center"><%= @patients.model.human_attribute_name('name') %></th>
+          <th class="text-center"><%= @patients.model.human_attribute_name('phone') %></th>
+          <th class="text-center"><%= t('labels.actions') %></th>
         </tr>
       </thead>
       <tbody>
         <% @patients.each do |patient| %>
           <tr>
             <td scope='row'><%= patient.id %></td>
-            <td><%= patient.name %></td>
-            <td><%= l(patient.date_entry) %></td>
-            <td><%= patient.time_entry.to_s(:time) %></td>
-            <td>
-              <%= link_to edit_upa_patient_path(patient), class: 'btn btn-outline-info' do %>
+            <td class="text-center"><%= patient.name %></td>
+            <td class="text-center"><%= patient.phone %></td>
+            <td class="text-center">
+              <%= link_to edit_upa_patient_path(patient), class: 'btn btn-info' do %>
                 <%= t('buttons.edit') %>
+              <% end %>
+              <%= link_to new_upa_appointment_path(:patient_id => patient.id), class: 'btn btn-warning' do %>
+                <%= t('buttons.appointment') %>
               <% end %>
             </td>
           </tr>

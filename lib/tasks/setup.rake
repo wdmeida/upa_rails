@@ -43,13 +43,15 @@ namespace :setup do
 
     puts 'Cadastrando Secretárias Fake...'
     
-    50.times do
-      Secretary.create!(
-        name: Faker::Name.name,
-        email: Faker::Internet.email,
-        password: '123456',
-        password_confirmation: '123456'        
-      )
+    ActiveRecord::Base.transaction do
+      50.times do
+        Secretary.create!(
+          name: Faker::Name.name,
+          email: Faker::Internet.email,
+          password: '123456',
+          password_confirmation: '123456'        
+        )
+      end
     end
 
     puts 'Cadastrando Secretárias Fake [Ok]'
@@ -60,16 +62,16 @@ namespace :setup do
 
     puts 'Cadastrando Pacientes Fake...'
     
-    100.times do
-      Patient.create!(
-        name: Faker::Name.name,     
-        birth: Faker::Date.birthday(1, 80),
-        phone: Faker::PhoneNumber.phone_number,
-        genre: [:male, :female].sample,
-        info: Faker::Lorem.sentence([2, 3, 4].sample),
-        time_entry: DateTime.current,
-        date_entry: Date.current     
-      )
+    ActiveRecord::Base.transaction do
+      500.times do
+        Patient.create!(
+          name: Faker::Name.name,     
+          birth: Faker::Date.birthday(1, 80),
+          phone: Faker::PhoneNumber.phone_number,
+          genre: [:male, :female].sample,
+          info: Faker::Lorem.sentence([2, 3, 4].sample)
+        )
+      end
     end
 
     puts 'Cadastrando Pacientes Fake [Ok]'
