@@ -11,5 +11,4 @@ class Patient < ApplicationRecord
   validates :birth, presence: true
   validates :phone, presence: true
   validates :genre, presence: true
-  validates :info, presence: true
 end

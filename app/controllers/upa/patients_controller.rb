@@ -16,7 +16,8 @@ class Upa::PatientsController < UpaController
     @patient = Patient.create(params_patient)
 
     unless @patient.errors.any?
-      redirect_to upa_patients_path, notice: I18n.t('messages.created_with', :item => @patient.name)
+      redirect_to new_upa_appointment_path(:patient_id => @patient.id), 
+                  notice: I18n.t('messages.created_with', :item => @patient.name)
     else
       render :new
     end
