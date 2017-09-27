@@ -22,3 +22,12 @@
   margin-bottom: 2rem;
 }
 
+.form-control-feedback {
+  color: #FF0000;
+}
+
+.label-required-fields {
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+

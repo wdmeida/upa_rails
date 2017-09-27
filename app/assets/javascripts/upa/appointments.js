@@ -1,3 +1,5 @@
+//= require forms.js
+
 jQuery(function() {
   var doctors = $('#appointment_doctor_id').html();
   
@@ -14,3 +16,5 @@ jQuery(function() {
     }
   });
 });
+
+validationFormSubmit("form-appointment");

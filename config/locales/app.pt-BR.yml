@@ -1,4 +1,5 @@
 'pt-BR':
   app:
     name: Unidade de Pronto Atendimento
+    saudation_screen_login: UPA - Login
     saudation: Seja bem-vindo(a) %{user}!!!

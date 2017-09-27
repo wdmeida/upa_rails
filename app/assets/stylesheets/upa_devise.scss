@@ -3,7 +3,8 @@
  *= require bootstrap
 */
 
-$color-background: #c1e2b3;
+$color-background: #00AC98;
+$color-text: #fff;
 
 body {
   padding: {
@@ -11,6 +12,7 @@ body {
     bottom: 40px;
   }
   background-color: $color-background;
+  color: $color-text;
 }
 
 .form-signin {

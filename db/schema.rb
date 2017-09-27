@@ -38,12 +38,10 @@ ActiveRecord::Schema.define(version: 20170923211823) do
     t.datetime "datetime_appointment"
     t.text     "diagnostic"
     t.boolean  "appointment_finished"
-    t.integer  "specialization_id_id"
     t.integer  "specialization_id"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
     t.index ["specialization_id"], name: "index_appointments_on_specialization_id"
-    t.index ["specialization_id_id"], name: "index_appointments_on_specialization_id_id"
   end
 
   create_table "doctors", force: :cascade do |t|
@@ -76,7 +74,6 @@ ActiveRecord::Schema.define(version: 20170923211823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "genre"
-    t.text     "info"
   end
 
   create_table "secretaries", force: :cascade do |t|

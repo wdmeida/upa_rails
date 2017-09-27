@@ -60,7 +60,7 @@ RSpec.describe Upa::PatientsController, type: :controller do
         end
 
         it { is_expected.to respond_with(:redirect) }
-        it { is_expected.to redirect_to(upa_patients_path) }
+        it { is_expected.to redirect_to "/upa/appointments/new?patient_id=#{patients.length + 1}" }
       end
 
       context 'with invalid params' do
