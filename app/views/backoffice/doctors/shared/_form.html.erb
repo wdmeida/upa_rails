@@ -5,80 +5,106 @@
     </h3>    
 </div>
 
-<%= form_for([:backoffice, @doctor]) do |f| %>
+<%= form_for([:backoffice, @doctor], html: { :novalidate => 'novalidate', :id => 'form-doctor' }) do |f| %>
 
   <div class="row">
-    <div class="form-group col-md-6 <%= has_errors?(@doctor, :name, 'has-danger') %>">
-      <%= f.label :name, :class => 'form-control-label' %>
-      <%= f.text_field :name, :class => "form-control" %>
-      <% if !@doctor.errors.messages[:name].empty? %>
+    <div class="form-group col-md-6">
+      <%= f.label :name, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @doctor.errors.messages[:name].empty? %>      
+        <%= f.text_field :name, :class => "form-control", :required => 'required' %>
+      <% else %>
+        <%= f.text_field :name, :class => "form-control is-invalid", :required => 'required'  %>      
         <div class="form-control-feedback"><%= @doctor.errors.full_messages_for(:name)[0] %></div>  
       <% end %>               
     </div>
 
-    <div class="form-group col-md-3 <%= has_errors?(@doctor, :crm, 'has-danger') %>">
-      <%= f.label :crm, :class => 'form-control-label' %>
-      <%= f.text_field :crm, :class => "form-control" %>
-      <% if !@doctor.errors.messages[:crm].empty? %>
+    <div class="form-group col-md-3">
+      <%= f.label :crm, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @doctor.errors.messages[:crm].empty? %>      
+        <%= f.text_field :crm, :class => "form-control", :required => 'required'  %>
+      <% else %>
+        <%= f.text_field :crm, :class => "form-control is-invalid", :required => 'required'  %>      
         <div class="form-control-feedback"><%= @doctor.errors.full_messages_for(:crm)[0] %></div>  
       <% end %>
     </div>
 
-    <div class="form-group col-md-3 <%= has_errors?(@doctor, :specialization, 'has-danger') %>">
-      <%= f.label :specialization, :class => 'form-control-label' %>
-      <%= collection_select(:doctor, :specialization_id, @specializations_options_for_select, :id,
-                                :description, {},{ :class => 'form-control' })  %>
-      <% if !@doctor.errors.messages[:specialization].empty? %>
+    <div class="form-group col-md-3">
+      <%= f.label :specialization, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @doctor.errors.messages[:specialization].empty? %>            
+        <%= collection_select(:doctor, :specialization_id, @specializations_options_for_select, :id,
+                                  :description, {},{ :class => 'form-control', :required => 'required'  })  %>
+      <% else %>
+        <%= collection_select(:doctor, :specialization_id, @specializations_options_for_select, :id,
+        :description, {},{ :class => 'form-control is-invalid', :required => 'required'  })  %>
         <div class="form-control-feedback"><%= @doctor.errors.full_messages_for(:specialization)[0] %></div>  
       <% end %>
     </div>
   </div>
 
   <div class="row">
-    <div class="form-group col-md-4 <%= has_errors?(@doctor, :email, 'has-danger') %>">
-      <%= f.label :email, :class => 'form-control-label' %>              
-      <%= f.text_field :email, :class => "form-control" %>
-      <% if !@doctor.errors.messages[:email].empty? %>
+    <div class="form-group col-md-4">
+      <%= f.label :email, :class => 'form-control-label' %> <span class="form-control-feedback">*</span> 
+      <% if @doctor.errors.messages[:email].empty? %>      
+        <%= f.text_field :email, :class => "form-control", :required => 'required'  %>
+      <% else %>
+        <%= f.text_field :email, :class => "form-control is-invalid", :required => 'required'  %>      
         <div class="form-control-feedback"><%= @doctor.errors.full_messages_for(:email)[0] %></div>  
       <% end %>                    
     </div>
 
-    <div class="form-group col-md-4 <%= has_errors?(@doctor, :phone, 'has-danger') %>">
-      <%= f.label :phone, :class => 'form-control-label' %>
-      <%= f.text_field :phone, :class => "form-control" %>
-      <% if !@doctor.errors.messages[:phone].empty? %>
+    <div class="form-group col-md-4">
+      <%= f.label :phone, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @doctor.errors.messages[:phone].empty? %>      
+        <%= f.text_field :phone, :class => "form-control", :required => 'required'  %>
+      <% else %>
+        <%= f.text_field :phone, :class => "form-control is-invalid", :required => 'required'  %>      
         <div class="form-control-feedback"><%= @doctor.errors.full_messages_for(:phone)[0] %></div>  
       <% end %>
     </div>
 
-    <div class="form-group col-md-4 <%= has_errors?(@doctor, :salary, 'has-danger') %>">
-      <%= f.label :salary, :class => 'form-control-label' %>
-      <div class="input-group">
-        <div class="input-group-addon"><%= @doctor.salary.currency.symbol %></div>
-        <%= f.text_field :salary, :class => "form-control" %>
-      </div>
-      <% if !@doctor.errors.messages[:salary].empty? %>
+    <div class="form-group col-md-4">
+      <%= f.label t('labels.salary'), :class => 'form-control-label' do %> 
+        <%= t('labels.salary') %> <span class="form-control-feedback">*</span>
+      <% end %>
+      <% if @doctor.errors.messages[:salary].empty? %>            
+        <div class="input-group">
+          <div class="input-group-addon"><%= @doctor.salary.currency.symbol %></div>
+          <%= f.text_field :salary, :class => "form-control", :required => 'required'  %>
+        </div>
+      <% else %>
+        <div class="input-group">
+          <div class="input-group-addon"><%= @doctor.salary.currency.symbol %></div>
+          <%= f.text_field :salary, :class => "form-control is-invalid", :required => 'required', :style => 'width: 100%;'  %>
+        </div>      
         <div class="form-control-feedback"><%= @doctor.errors.full_messages_for(:salary)[0] %></div>  
       <% end %>
     </div>
   </div>
 
   <div class="row">
-    <div class="form-group col-md-6 <%= has_errors?(@doctor, :password, 'has-danger') %>">
-      <%= f.label :password, :class => 'form-control-label' %>
-      <%= f.password_field :password, :class => "form-control" %>
-      <% if !@doctor.errors.messages[:password].empty? %>
+    <div class="form-group col-md-6">
+      <%= f.label :password, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @doctor.errors.messages[:password].empty? %>      
+        <%= f.password_field :password, :class => "form-control", :required => 'required'  %>
+      <% else %>
+        <%= f.password_field :password, :class => "form-control is-invalid", :required => 'required'  %>      
         <div class="form-control-feedback"><%= @doctor.errors.full_messages_for(:password)[0] %></div>  
       <% end %>  
     </div>
 
     <div class="form-group col-md-6 <%= has_errors?(@doctor, :password_confirmation, 'has-danger') %>">
-      <%= f.label :password_confirmation, :class => 'form-control-label' %>
-      <%= f.password_field :password_confirmation, :class => "form-control" %>
-      <% if !@doctor.errors.messages[:password_confirmation].empty? %>
+      <%= f.label :password_confirmation, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @doctor.errors.messages[:password_confirmation].empty? %>      
+        <%= f.password_field :password_confirmation, :class => "form-control", :required => 'required'  %>
+      <% else %>
+        <%= f.password_field :password_confirmation, :class => "form-control is-invalid", :required => 'required'  %>      
         <div class="form-control-feedback"><%= @doctor.errors.full_messages_for(:password_confirmation)[0] %></div>  
       <% end %>
     </div>
+  </div>
+
+  <div class="row col-md-12 label-required-fields">
+    <span class="form-control-feedback"><%= t('labels.fields_required') %></span>
   </div>
 
   <div class="row">

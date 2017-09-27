@@ -9,7 +9,7 @@ class Doctor < ApplicationRecord
   has_many :patients, :through => :appointments
 
   # Gem Money Rails
-  monetize :salary_cents
+  monetize :salary_cents, :numericality => { :greater_than => 0 }
 
   validates :name, presence: true, length: { minimum: 5 }
   validates :crm, presence: true, length: { minimum: 5 }
