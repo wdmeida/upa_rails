@@ -5,20 +5,31 @@
   </h3>    
 </div>
 
-<%= form_for([:backoffice, @specialization]) do |f| %>
+<%= form_for([:backoffice, @specialization], html: { :novalidate => 'novalidate', :id => 'form-specialization' }) do |f| %>
   <div class="row">
-    <div class="form-group col-md-12 <%= has_errors?(@specialization, :description, 'has-danger') %>">
-      <%= f.label :description, :class => 'form-control-label' %>
-      <%= f.text_field :description, :class => 'form-control' %>
-      <% if !@specialization.errors.messages[:description].empty? %>
+    <div class="form-group col-md-12">
+      <%= f.label :class => 'form-control-label' do %>
+        <%= t('activerecord.models.specialization.description') %> <span class="form-control-feedback">*</span>
+      <% end %>
+      <% if @specialization.errors.messages[:description].empty? %>      
+        <%= f.text_field :description, :class => 'form-control', :required => 'required' %>
+      <% else %>
+        <%= f.text_field :description, :class => 'form-control is-invalid', :required => 'required' %>      
         <div class="form-control-feedback"><%= @specialization.errors.full_messages_for(:description)[0] %></div>
       <% end %>
     </div>
   </div>
 
+  <div class="row col-md-12 label-required-fields">
+    <span class="form-control-feedback"><%= t('labels.fields_required') %></span>
+  </div>
+
   <div class="row">
     <div class="form-group col-md-12">
       <%= f.submit t('buttons.save'), :class => "btn btn-primary" %>
+      <%= link_to backoffice_specializations_path, :class => 'btn btn-secondary' do %>
+        <%= t('buttons.back') %>
+      <% end %>
     </div>
   </div>
 <% end %>

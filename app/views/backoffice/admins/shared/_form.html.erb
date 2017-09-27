@@ -9,7 +9,7 @@
     
   <div class="row">
     <div class="form-group col-md-6">
-      <%= f.label :name, :class => 'form-control-label' %>
+      <%= f.label :name, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
       <% if @admin.errors.messages[:name].empty? %>
         <%= f.text_field :name, :class => 'form-control', :required => 'required' %>
       <% else %>
@@ -19,7 +19,9 @@
     </div>
 
     <div class="col-md-6">
-      <%= f.label :email, :class => 'form-control-label' %>
+      <%= f.label :class => 'form-control-label' do %> 
+        <%= t('activerecord.attributes.admin.email') %> <span class="form-control-feedback">*</span>
+      <% end %>
       <% if @admin.errors.messages[:email].empty? %>      
         <%= f.text_field :email, :class => 'form-control', :required => 'required' %>
       <% else %>
@@ -31,7 +33,7 @@
 
   <div class="row">
     <div class="form-group col-md-6">    
-      <%= f.label :password, :class => 'form-control-label' %>
+      <%= f.label :password, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
       <% if @admin.errors.messages[:password].empty? %>      
         <%= f.password_field :password, :class => 'form-control', :required => 'required' %>
       <% else %>
@@ -41,7 +43,7 @@
     </div>
 
     <div class="form-group col-md-6">
-      <%= f.label :password_confirmation, :class => 'form-control-label' %>
+      <%= f.label :password_confirmation, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
       <% if @admin.errors.messages[:password_confirmation].empty? %>      
         <%= f.password_field :password_confirmation, :class => 'form-control', :required => 'required' %>
       <% else %>
@@ -49,6 +51,12 @@
         <div class="form-control-feedback"><%= @admin.errors.full_messages_for(:password_confirmation)[0] %></div>  
       <% end %>      
     </div>
+  </div>
+
+  <div class="row col-md-12 label-required-fields">
+    <span class="form-control-feedback">
+      <%= t('labels.fields_required') %>
+    </span>
   </div>
 
   <div class="row">
