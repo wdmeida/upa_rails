@@ -5,41 +5,41 @@
   </h3>    
 </div>
 
-<%= form_for([:upa, @patient]) do |f| %>
+<%= form_for([:upa, @patient], html: {:novalidate => 'novalidate', :id => 'form-patient' }) do |f| %>
   <div class="row">  
     <div class="form-group col-md-12">
       <%= f.label :name, :class => 'form-control-label' %>
-      <%= f.text_field :name, :class => "form-control" %>
+      <%= f.text_field :name, { :class => "form-control", :required => 'oiroeiroiore' } %>
       <% if !@patient.errors.messages[:name].empty? %>
-        <div class="form-control-feedback"><%= @patient.errors.full_messages_for(:name)[0] %></div>  
+        <div class="invalid-feedback"><%= @patient.errors.full_messages_for(:name)[0] %></div>  
       <% end %>
     </div>
   </div>
 
   <div class="row">
-    <div class="form-group col-md-4 <%= has_errors?(@patient, :phone, 'is-invalid') %>">
+    <div class="form-group col-md-4">
       <%= f.label :phone, :class => 'form-control-label'  %>
-      <%= f.text_field :phone, :class => 'form-control' %>
+      <%= f.text_field :phone, :class => 'form-control', :required => 'required' %>
       <% if !@patient.errors.messages[:phone].empty? %>
-        <div class="form-control-feedback"><%= @patient.errors.full_messages_for(:phone)[0] %></div>  
+        <div class="invalid-feedback"><%= @patient.errors.full_messages_for(:phone)[0] %></div>  
       <% end %>          
     </div>
 
-    <div class="form-group col-md-4 <%= has_errors?(@patient, :birth, 'has-danger') %>">
+    <div class="form-group col-md-4">
       <%= f.label :birth, :class => 'form-control-label'  %>
       <%= f.text_field :birth, :class => 'form-control datetimepicker_birth', 
-          :value => (l(@patient.birth) unless @patient.birth.blank?) %>
+          :value => (l(@patient.birth) unless @patient.birth.blank?), :required => 'required' %>
       <% if !@patient.errors.messages[:birth].empty? %>
-        <div class="form-control-feedback"><%= @patient.errors.full_messages_for(:birth)[0] %></div>  
+        <div class="invalid-feedback"><%= @patient.errors.full_messages_for(:birth)[0] %></div>  
       <% end %>
     </div>
 
-    <div class="form-group col-md-4 <%= has_errors?(@patient, :genre, 'has-danger') %>">
+    <div class="form-group col-md-4">
       <%= f.label :genre, :class => 'form-control-label'  %>
       <%= collection_select :patient, :genre, options_for_genres, :id, :description, {}, 
-          {:class => 'form-control'} %>
+          { :class => 'form-control', :required => 'required' } %>
       <% if !@patient.errors.messages[:genre].empty? %>
-        <div class="form-control-feedback"><%= @patient.errors.full_messages_for(:genre)[0] %></div>  
+        <div class="invalid-feedback"><%= @patient.errors.full_messages_for(:genre)[0] %></div>  
       <% end %>
     </div>
   </div>
