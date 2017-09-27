@@ -18,7 +18,7 @@
   
   <div class="row">
     <div class="form-group col-md-4">
-      <%= f.label :datetime_appointment, :class => 'form-control-label' %>
+      <%= f.label :datetime_appointment, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
       <% if @appointment.errors.messages[:datetime_appointment].empty? %>      
       <%= f.text_field :datetime_appointment, :class => 'form-control datetimepicker_appointment',
                           :value => (l(@appointment.datetime_appointment) unless @appointment.datetime_appointment.blank?),
@@ -27,12 +27,14 @@
         <%= f.text_field :datetime_appointment, :class => 'form-control datetimepicker_appointment is-invalid',
                           :value => (l(@appointment.datetime_appointment) unless @appointment.datetime_appointment.blank?),
                           :required => 'required' %>
-        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:datetime_appointment)[0] %></div>
+        <div class="form-control-feedback">
+          <%= @appointment.errors.full_messages_for(:datetime_appointment)[0] %>
+        </div>
       <% end %>
     </div>
 
     <div class="form-group col-md-4">
-      <%= f.label :specialization, :class => 'form-control-label' %>
+      <%= f.label :specialization, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
       <% if @appointment.errors.messages[:specialization].empty? %>
         <%= collection_select(:appointment, :specialization_id, @specializations, :id, :description,
                             { :prompt => t('labels.selected_specialization') }, 
@@ -41,12 +43,14 @@
         <%= collection_select(:appointment, :specialization_id, @specializations, :id, :description,
                             { :prompt => t('labels.selected_specialization') }, 
                             { :class => 'form-control is-invalid', :required => 'required' } ) %>
-        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:specialization)[0] %></div>  
+        <div class="form-control-feedback">
+          <%= @appointment.errors.full_messages_for(:specialization)[0] %>
+        </div>  
       <% end %>
     </div>
 
     <div class="form-group col-md-4">
-      <%= f.label :doctor, :class => 'form-control-label' %>
+      <%= f.label :doctor, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
       <% if @appointment.errors.messages[:doctor].empty? %>      
         <%= grouped_collection_select(:appointment, :doctor_id, @specializations, :doctors, :description, :id, :name,
                             { :prompt => t('labels.selected_doctor') }, 
@@ -55,7 +59,9 @@
         <%= grouped_collection_select(:appointment, :doctor_id, @specializations, :doctors, :description, :id, :name,
                             { :prompt => t('labels.selected_doctor') }, 
                             { :class => 'form-control is-invalid', :required => 'required' } ) %>      
-        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:doctor)[0] %></div>  
+        <div class="form-control-feedback">
+          <%= @appointment.errors.full_messages_for(:doctor)[0] %>
+        </div>  
       <% end %>
     </div>
   </div>
@@ -63,7 +69,8 @@
   <div class="row">
     <div class="form-check col-md-4">
       <%= f.label :appointment_finished, :class => 'form-check-label' do %>
-        <%= f.check_box :appointment_finished, { :class => 'form-check-input', :value => @appointment.appointment_finished? } %>
+        <%= f.check_box :appointment_finished, { :class => 'form-check-input', 
+                        :value => @appointment.appointment_finished? } %>
         <%= t('labels.appointment_finished') %>
       <% end %>
     </div>
@@ -71,13 +78,24 @@
   
   <div class="row">
     <div class="form-group col-md-12">
-      <%= f.label :diagnostic, :class => 'form-control-label' %>
-      <%= f.text_area :diagnostic, :class => 'form-control', :rows => 4,
-        :placeholder => 'Mais informações...', :required => 'required' %>
-      <% if !@appointment.errors.messages[:diagnostic].empty? %>
-        <div class="form-control-feedback"><%= @appointment.errors.full_messages_for(:diagnostic)[0] %></div>
+      <%= f.label :diagnostic, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @appointment.errors.messages[:diagnostic].empty? %>      
+        <%= f.text_area :diagnostic, :class => 'form-control', :rows => 4, 
+                        :placeholder => 'Mais informações...', :required => 'required' %>
+      <% else %>
+        <%= f.text_area :diagnostic, :class => 'form-control is-invalid', :rows => 4, 
+                        :placeholder => 'Mais informações...', :required => 'required' %>
+        <div class="form-control-feedback">
+          <%= @appointment.errors.full_messages_for(:diagnostic)[0] %>
+        </div>
       <% end %>
     </div>
+  </div>
+
+  <div class="row col-md-12 label-required-fields">
+    <span class="form-control-feedback">
+      <%= t('labels.fields_required') %>
+    </span>
   </div>
 
   <div class="row">
