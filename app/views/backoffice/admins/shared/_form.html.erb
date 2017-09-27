@@ -5,42 +5,66 @@
     </h3>    
 </div>
     
-<%= form_for([:backoffice, @admin]) do |f| %>
+<%= form_for([:backoffice, @admin], html: { :novalidate => 'novalidate', :id => 'form-admin' }) do |f| %>
     
   <div class="row">
-    <div class="form-group col-md-6 <%= has_errors?(@admin, :name, 'has-danger') %>">
-      <%= f.label :name, :class => 'form-control-label' %>
-      <%= f.text_field :name, :class => 'form-control' %>
-      <% if !@admin.errors.messages[:name].empty? %>
-        <div class="form-control-feedback"><%= @admin.errors.full_messages_for(:name)[0] %></div>  
+    <div class="form-group col-md-6">
+      <%= f.label :name, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @admin.errors.messages[:name].empty? %>
+        <%= f.text_field :name, :class => 'form-control', :required => 'required' %>
+      <% else %>
+        <%= f.text_field :name, :class => 'form-control is-invalid', :required => 'required' %>      
+        <div class="form-control-feedback">
+          <%= @admin.errors.full_messages_for(:name)[0] %>
+        </div>  
       <% end %>          
     </div>
 
-    <div class="form-group col-md-6 <%= has_errors?(@admin, :name, 'has-danger') %>">
-      <%= f.label :email, :class => 'form-control-label' %>
-      <%= f.text_field :email, :class => 'form-control' %>
-      <% if !@admin.errors.messages[:email].empty? %>
-        <div class="form-control-feedback"><%= @admin.errors.full_messages_for(:email)[0] %></div>  
+    <div class="col-md-6">
+      <%= f.label :class => 'form-control-label' do %> 
+        <%= t('activerecord.attributes.admin.email') %> <span class="form-control-feedback">*</span>
+      <% end %>
+      <% if @admin.errors.messages[:email].empty? %>      
+        <%= f.text_field :email, :class => 'form-control', :required => 'required' %>
+      <% else %>
+        <%= f.text_field :email, :class => 'form-control is-invalid', :required => 'required' %>      
+        <div class="form-control-feedback">
+          <%= @admin.errors.full_messages_for(:email)[0] %>
+        </div>  
       <% end %>                    
     </div>
   </div>
 
   <div class="row">
-    <div class="form-group col-md-6 <%= has_errors?(@admin, :password, 'has-danger') %>">    
-      <%= f.label :password, :class => 'form-control-label' %>
-      <%= f.password_field :password, :class => 'form-control' %>
-      <% if !@admin.errors.messages[:password].empty? %>
-        <div class="form-control-feedback"><%= @admin.errors.full_messages_for(:password)[0] %></div>  
+    <div class="form-group col-md-6">    
+      <%= f.label :password, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @admin.errors.messages[:password].empty? %>      
+        <%= f.password_field :password, :class => 'form-control', :required => 'required' %>
+      <% else %>
+        <%= f.password_field :password, :class => 'form-control is-invalid', :required => 'required' %>      
+        <div class="form-control-feedback">
+          <%= @admin.errors.full_messages_for(:password)[0] %>
+        </div>  
       <% end %>
     </div>
 
-    <div class="form-group col-md-6 <%= has_errors?(@admin, :password_confirmation, 'has-danger') %>">
-      <%= f.label :password_confirmation, :class => 'form-control-label' %>
-      <%= f.password_field :password_confirmation, :class => 'form-control' %>
-      <% if !@admin.errors.messages[:password_confirmation].empty? %>
-        <div class="form-control-feedback"><%= @admin.errors.full_messages_for(:password_confirmation)[0] %></div>  
+    <div class="form-group col-md-6">
+      <%= f.label :password_confirmation, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @admin.errors.messages[:password_confirmation].empty? %>      
+        <%= f.password_field :password_confirmation, :class => 'form-control', :required => 'required' %>
+      <% else %>
+        <%= f.password_field :password_confirmation, :class => 'form-control is-invalid', :required => 'required' %>      
+        <div class="form-control-feedback">
+          <%= @admin.errors.full_messages_for(:password_confirmation)[0] %>
+        </div>  
       <% end %>      
     </div>
+  </div>
+
+  <div class="row col-md-12 label-required-fields">
+    <span class="form-control-feedback">
+      <%= t('labels.fields_required') %>
+    </span>
   </div>
 
   <div class="row">

@@ -40,11 +40,13 @@ gem 'jquery-ui-rails'
 gem 'ransack'
 # Integration of RubyMoney - Money with Rails 
 gem 'money-rails', '~>1'
+# A kickass library to manage your poppers
+gem 'popper_js', '~> 1.12.3'
 
 # Rails Assets
 source 'https://rails-assets.org' do
   # Assets bootstrap
-  gem 'rails-assets-bootstrap', '4.0.0.alpha.6'
+  gem 'rails-assets-bootstrap', '4.0.0.beta'
   # NotifyJS
   gem 'rails-assets-notifyjs'
   # A client-side library to make absolutely positioned elements attach to elements in the page efficiently.
