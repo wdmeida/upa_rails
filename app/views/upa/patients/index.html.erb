@@ -11,7 +11,7 @@
     <div class="input-group">
       <%= f.search_field :name_cont, class: 'form-control', placeholder: 'Pesquisar' %>
       <span class="input-group-btn">
-        <%= f.submit t('buttons.search'), class: 'btn btn-outline-danger' %>
+        <%= f.submit t('buttons.search'), class: 'btn btn-outline-dark' %>
       </span>
       <% end %>
     </div>
@@ -44,11 +44,11 @@
             <td class="text-center"><%= patient.name %></td>
             <td class="text-center"><%= patient.phone %></td>
             <td class="text-center">
-              <%= link_to edit_upa_patient_path(patient), class: 'btn btn-info' do %>
-                <%= t('buttons.edit') %>
+              <%= link_to edit_upa_patient_path(patient), class: 'btn btn-outline-info' do %>
+                <%= fa_icon "edit" %>
               <% end %>
-              <%= link_to new_upa_appointment_path(:patient_id => patient.id), class: 'btn btn-warning' do %>
-                <%= t('buttons.appointment') %>
+              <%= link_to new_upa_appointment_path(:patient_id => patient.id), class: 'btn btn-outline-danger' do %>
+                <%= fa_icon "medkit" %>          
               <% end %>
             </td>
           </tr>
