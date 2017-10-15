@@ -1,7 +1,8 @@
 'pt-BR':
   labels:
     submit: Enviar
-    login: Login
+    login_upa: Login - UPA
+    login_admin: Login - Admin
     remember_me: Lembrar-me
     listed: Listando
     edited: Editando

@@ -4,25 +4,26 @@
 */
 
 // $color-background: #399be0;
-$color-background: #24d953;
-$color-text: #fff;
+$primary-color-background: #006622;
+$secondary-color-background: #fff;
+$border-color: #000;
 
 body {
   padding: {
     top: 40px;
     bottom: 40px;
   }
-  background-color: $color-background;
-  // color: $color-text;
+  background-color: $primary-color-background;
 }
 
 .form-signin {
   max-width: 330px;
   padding: 40px;
   margin: 0 auto;
-  box-shadow: 0px 0px 5px gray;
+  margin-top: 50px;
+  box-shadow: 5px 5px 10px $border-color;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: $secondary-color-background;
 }
 
 .form-signin .form-signin-heading,
