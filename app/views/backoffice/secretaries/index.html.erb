@@ -19,7 +19,7 @@
                         <th>#</th>
                         <th><%= @secretaries.model.human_attribute_name("name") %></th>
                         <th><%= @secretaries.model.human_attribute_name("email") %></th>
-                        <th></th>
+                        <th><%= t('labels.actions') %></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,12 +31,12 @@
                             <td>
                                 
                                 <%= link_to edit_backoffice_secretary_path(secretary), :class => "btn btn-outline-primary" do %>
-                                    <%= t('buttons.edit') %>
+                                    <%= fa_icon "edit" %>                                
                                 <% end %>
 
                                 <%= link_to backoffice_secretary_path(secretary), method: :delete, :class => "btn btn-outline-danger",
                                     data: {confirm: t('messages.confirm_with', :item => secretary.name)} do %>
-                                    <%= t('buttons.delete') %>
+                                    <%= fa_icon "remove" %>
                                 <% end %>
                             </td>
                         </tr>

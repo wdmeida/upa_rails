@@ -18,7 +18,7 @@
                     <th>#</th>
                     <th><%= @doctors.model.human_attribute_name("name") %></th>
                     <th><%= @doctors.model.human_attribute_name("specialization") %></th>
-                    <th></th>
+                    <th><%= t('labels.actions') %></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +30,7 @@
                         <td>
                             
                             <%= link_to edit_backoffice_doctor_path(doctor), :class => "btn btn-outline-primary" do %>
-                                <%= t('buttons.edit') %>
+                                <%= fa_icon "edit" %>                            
                             <% end %>
 
                         </td>

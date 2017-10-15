@@ -42,6 +42,8 @@ gem 'ransack'
 gem 'money-rails', '~>1'
 # A kickass library to manage your poppers
 gem 'popper_js', '~> 1.12.3'
+# The iconic font and CSS toolkit
+gem "font-awesome-rails"
 
 # Rails Assets
 source 'https://rails-assets.org' do
