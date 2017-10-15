@@ -16,7 +16,7 @@
                 <tr>
                     <th>#</th>
                     <th><%= @specializations.model.human_attribute_name("description") %></th>
-                    <th>Ações</th>
+                    <th><%= t('labels.actions') %></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +27,7 @@
                         <td>
                             
                             <%= link_to edit_backoffice_specialization_path(specialization), :class => "btn btn-outline-primary" do %>
-                                <%= t('buttons.edit') %>
+                                <%= fa_icon "edit" %>                            
                             <% end %>
 
                         </td>

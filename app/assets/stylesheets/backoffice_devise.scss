@@ -1,0 +1,15 @@
+$primary-color-background: #563d7c;
+$secondary-color-background: #fff;
+$border-color: #000;
+
+body {
+  background-color: $primary-color-background;
+}
+
+.form-login {
+  box-shadow: 5px 5px 5px $border-color;
+  margin-top: 50px;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: $secondary-color-background;
+}
