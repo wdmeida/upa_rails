@@ -53,5 +53,5 @@
         doctor: Médico
         specialization: Especialização
         datetime_appointment: Data/Hora Atendimento
-        diagnostic: Diagnóstico
+        info: Informações
         appointment_finished: Atendimento finalizado?

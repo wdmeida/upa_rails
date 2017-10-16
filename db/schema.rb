@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170923211823) do
     t.integer  "patient_id"
     t.integer  "doctor_id"
     t.datetime "datetime_appointment"
-    t.text     "diagnostic"
+    t.text     "info"
     t.boolean  "appointment_finished"
     t.integer  "specialization_id"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
