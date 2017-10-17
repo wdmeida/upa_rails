@@ -13,7 +13,9 @@ class Backoffice::SecretariesController < BackofficeController
     @secretary = Secretary.create(params_secretaries)
 
     unless @secretary.errors.any?
-      redirect_to backoffice_secretaries_path, notice: I18n.t('messages.created_with', :item => @secretary.name)
+      redirect_to backoffice_secretaries_path, notice: I18n.t('messages.created_with', 
+                                                              :kind => t('activerecord.models.secretary.one'),
+                                                              :item => @secretary.name)
     else
       render :new
     end
@@ -24,7 +26,9 @@ class Backoffice::SecretariesController < BackofficeController
 
   def update
     if @secretary.update(params_secretaries)
-      redirect_to backoffice_secretaries_path, notice: I18n.t('messages.updated_with', :item => @secretary.name)
+      redirect_to backoffice_secretaries_path, notice: I18n.t('messages.updated_with', 
+                                                              :kind => t('activerecord.models.secretary.one'), 
+                                                              :item => @secretary.name)
     else
       render :edit
     end
@@ -34,7 +38,9 @@ class Backoffice::SecretariesController < BackofficeController
     secretary_email = @secretary.email
 
     if @secretary.destroy
-      redirect_to backoffice_secretaries_path, notice: I18n.t('messages.destroyed_with', :item => secretary_email)
+      redirect_to backoffice_secretaries_path, notice: I18n.t('messages.destroyed_with', 
+                                                              :kind => t('activerecord.models.secretary.one'),
+                                                              :item => secretary_email)
     else
       render :index
     end

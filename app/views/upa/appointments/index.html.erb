@@ -40,7 +40,7 @@
                   <%= fa_icon "edit" %>
                 <% end %>
                 <%= link_to upa_appointment_path(appointment), method: :delete, :class => 'btn btn-outline-danger',
-                  data: {confirm: t('messages.confirm_with', :item => appointment.patient.name)} do %>
+                  data: {confirm: t('messages.appointment.confirm_with', :item => appointment.patient.name)} do %>
                   <%= fa_icon "remove" %>
                 <% end %>
             </td>

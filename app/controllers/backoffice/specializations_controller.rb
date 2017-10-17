@@ -14,7 +14,9 @@ class Backoffice::SpecializationsController < BackofficeController
         @specialization = Specialization.create(params_specialization)
 
         unless @specialization.errors.any?
-            redirect_to backoffice_specializations_path, notice: I18n.t('messages.created_with', :item => @specialization.description)
+						redirect_to backoffice_specializations_path, notice: I18n.t('messages.created_with',
+																																				:kind => t('activerecord.models.specialization.one'),
+                                                                        :item => @specialization.description)
         else
             render :new 
         end
@@ -25,7 +27,9 @@ class Backoffice::SpecializationsController < BackofficeController
 
     def update
         if @specialization.update(params_specialization)
-            redirect_to backoffice_specializations_path, notice: I18n.t('messages.updated_with', :item => @specialization.description) 
+						redirect_to backoffice_specializations_path, notice: I18n.t('messages.updated_with', 
+																																				:kind => t('activerecord.models.specialization.one'),
+                                                                        :item => @specialization.description) 
         else
             render :edit
         end

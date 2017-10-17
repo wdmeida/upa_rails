@@ -17,7 +17,9 @@ class Upa::PatientsController < UpaController
 
     unless @patient.errors.any?
       redirect_to new_upa_appointment_path(:patient_id => @patient.id), 
-                  notice: I18n.t('messages.created_with', :item => @patient.name)
+                                           notice: I18n.t('messages.created_with',
+                                                          :kind => t('activerecord.models.patient.one'), 
+                                                          :item => @patient.name)
     else
       render :new
     end
@@ -28,7 +30,9 @@ class Upa::PatientsController < UpaController
 
   def update
     if @patient.update(params_patient)
-      redirect_to upa_patients_path, notice: I18n.t('messages.updated_with', :item => @patient.name)
+      redirect_to upa_patients_path, notice: I18n.t('messages.updated_with', 
+                                                    :kind => t('activerecord.models.patient.one'),
+                                                    :item => @patient.name)
     else
       render :edit
     end

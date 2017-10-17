@@ -15,7 +15,9 @@ class Backoffice::DoctorsController < BackofficeController
         @doctor = Doctor.create(params_doctors)
         
         unless @doctor.errors.any?
-            redirect_to backoffice_doctors_path, notice: I18n.t('messages.created_with', :item => @doctor.name)
+						redirect_to backoffice_doctors_path, notice: I18n.t('messages.created_with',
+																															  :kind => "#{t('activerecord.models.doctor.one')}(a)",
+                                                                :item => @doctor.name)
         else
             render :new
         end
@@ -26,7 +28,9 @@ class Backoffice::DoctorsController < BackofficeController
 
     def update
         if @doctor.update(params_doctors)
-            redirect_to backoffice_doctors_path, notice: I18n.t('messages.updated_with', :item => @doctor.name)
+						redirect_to backoffice_doctors_path, notice: I18n.t('messages.updated_with', 
+																																:kind => "#{t('activerecord.models.doctor.one')}(a)",
+                                                                :item => @doctor.name)
         else
             render :edit
         end

@@ -30,7 +30,8 @@ class Upa::AppointmentsController < UpaController
 
   def destroy
     if @appointment.destroy
-      redirect_to upa_appointments_path, notice: I18n.t('messages.destroyed_with', :item => @patient.name)
+      redirect_to upa_appointments_path, notice: I18n.t('messages.appointment.destroyed_with', 
+                                                        :item => @patient.name)
     else
       render :index
     end
@@ -38,7 +39,8 @@ class Upa::AppointmentsController < UpaController
 
   def update
     if @appointment.update(params_appointment)
-      redirect_to upa_appointments_path, notice: I18n.t('messages.updated_with', :item => @appointment.patient.name)
+      redirect_to upa_appointments_path, notice: I18n.t('messages.appointment.updated_with', 
+                                                        :item => @appointment.patient.name)
     else
       render :edit
     end

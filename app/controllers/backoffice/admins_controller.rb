@@ -14,7 +14,9 @@ class Backoffice::AdminsController < BackofficeController
         @admin = Admin.create(params_admins)
 
         unless @admin.errors.any?
-            redirect_to backoffice_admins_path, notice: I18n.t('messages.created_with', :item => @admin.name)
+						redirect_to backoffice_admins_path, notice: I18n.t('messages.created_with', 
+																															 :kind => t('activerecord.models.admin.one'),
+                                                               :item => @admin.name)
         else
             render :new
         end
@@ -25,7 +27,9 @@ class Backoffice::AdminsController < BackofficeController
 
     def update
         if @admin.update(params_admins)
-            redirect_to backoffice_admins_path, notice: I18n.t('messages.updated_with', :item => @admin.name)
+						redirect_to backoffice_admins_path, notice: I18n.t('messages.updated_with',
+																															 :kind => t('activerecord.models.admin.one'), 
+																															 :item => @admin.name)
         else
             render :edit
         end
@@ -35,7 +39,9 @@ class Backoffice::AdminsController < BackofficeController
         admin_email = @admin.email
 
         if @admin.destroy
-            redirect_to backoffice_admins_path, notice: I18n.t('messages.destroyed_with', :item => admin_email)
+            redirect_to backoffice_admins_path, notice: I18n.t('messages.destroyed_with', 
+																															 :kind => t('activerecord.models.admin.one'), 
+																															 :item => admin_email)
         else
             render :index
         end

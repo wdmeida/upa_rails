@@ -4,7 +4,7 @@ namespace :setup do
        
     puts 'Cadastrando administradores teste...'
 
-    20.times do
+    10.times do
       Admin.create!(
         name: Faker::Name.name,
         email: Faker::Internet.email,
@@ -21,7 +21,7 @@ namespace :setup do
 
     puts "Cadastrando Médicos Fake..."
     
-        100.times do
+        30.times do
           Doctor.create!(
               name: Faker::Name.name,
               email: Faker::Internet.email,
@@ -44,7 +44,7 @@ namespace :setup do
     puts 'Cadastrando Secretárias Fake...'
     
     ActiveRecord::Base.transaction do
-      50.times do
+      10.times do
         Secretary.create!(
           name: Faker::Name.name,
           email: Faker::Internet.email,
@@ -63,7 +63,7 @@ namespace :setup do
     puts 'Cadastrando Pacientes Fake...'
     
     ActiveRecord::Base.transaction do
-      500.times do
+      50.times do
         Patient.create!(
           name: Faker::Name.name,     
           birth: Faker::Date.birthday(1, 80),
