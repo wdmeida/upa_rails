@@ -9,6 +9,10 @@ class Patient < ApplicationRecord
 
   validates :name, presence: true
   validates :birth, presence: true
-  validates :phone, presence: true
+  validates :phone, presence: true, 
+                    format: { 
+                              with: PatternValidation::PHONE, 
+                              message: I18n.t('messages.field_invalid') 
+                            }
   validates :genre, presence: true
 end

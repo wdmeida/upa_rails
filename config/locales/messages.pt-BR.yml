@@ -11,6 +11,7 @@
     creating: Criando
     editing: Editando
     updating: Atualizando
+    field_invalid: inválido, preencha novamente!
     appointment:
       created_with: Atendimento ao paciente %{item} agendado com sucesso!
       updated_with: Atendimento ao paciente %{item} atualizado com sucesso!

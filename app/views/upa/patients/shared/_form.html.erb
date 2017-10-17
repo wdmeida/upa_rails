@@ -25,9 +25,9 @@
     <div class="form-group col-md-4">
       <%= f.label :phone, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
       <% if @patient.errors.messages[:phone].empty? %>      
-        <%= f.text_field :phone, :class => 'form-control', :required => 'required' %>
+        <%= f.text_field :phone, :class => 'form-control phone-input', :required => 'required' %>
       <% else %>
-        <%= f.text_field :phone, :class => 'form-control is-invalid', :required => 'required' %>      
+        <%= f.text_field :phone, :class => 'form-control is-invalid phone-input', :required => 'required' %>      
         <div class="form-control-feedback">
           <%= @patient.errors.full_messages_for(:phone)[0] %>
         </div>  

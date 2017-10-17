@@ -12,6 +12,7 @@
 //
 //= require popper
 //= require jquery
+//= require inputmask
 //= require datetimepicker
 //= require jquery_ujs
 //= require tether
@@ -65,3 +66,8 @@ $(function() {
     timepicker: false
   });
 });
+
+$(document).ready(function() {
+  $('.phone-input').inputmask("(99) 9{4,5}-9{4}");
+  $('.crm-input').inputmask("9{4,10}/aa");
+})

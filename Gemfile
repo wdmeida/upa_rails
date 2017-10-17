@@ -57,6 +57,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootbox'
   # jQuery plugin select date and time.
   gem 'rails-assets-datetimepicker'
+  # Inputmask is a javascript library which creates an input mask. Inputmask can run against vanilla javascript, jQuery and jqlite.
+  gem 'rails-assets-inputmask'
 end
 
 # Use jquery as the JavaScript library
