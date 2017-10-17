@@ -48,7 +48,7 @@ class Upa::AppointmentsController < UpaController
     def params_appointment
       params.require(:appointment).permit(:datetime_appointment,
                                           :appointment_finished,
-                                          :diagnostic,
+                                          :info,
                                           :patient_id,
                                           :specialization_id,
                                           :doctor_id)
