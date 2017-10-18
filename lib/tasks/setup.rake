@@ -25,7 +25,7 @@ namespace :setup do
           Doctor.create!(
               name: Faker::Name.name,
               email: Faker::Internet.email,
-              crm: "#{Random.rand(1000..99999999999)}/#{Faker::Address.state_abbr}",
+              crm: "#{Random.rand(10000..9999999999)}/#{Faker::Address.state_abbr}",
               specialization_id: [1,2,3,4,5].sample,
               phone: "(#{Random.rand(10..99)}) #{Random.rand(3111..99999)}-#{Random.rand(1000..9999)}",
               salary: Faker::Number.number(4), 
@@ -67,6 +67,7 @@ namespace :setup do
         Patient.create!(
           name: Faker::Name.name,     
           birth: Faker::Date.birthday(1, 80),
+          cpf: Faker::CPF.cpf,
           phone: "(#{Random.rand(10..99)}) #{Random.rand(3111..99999)}-#{Random.rand(1000..9999)}",
           genre: [:male, :female].sample
         )

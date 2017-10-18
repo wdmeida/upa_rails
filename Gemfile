@@ -43,7 +43,11 @@ gem 'money-rails', '~>1'
 # A kickass library to manage your poppers
 gem 'popper_js', '~> 1.12.3'
 # The iconic font and CSS toolkit
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+# The safe Markdown parser, reloaded.
+gem 'redcarpet'
+# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
+gem 'friendly_id'
 
 # Rails Assets
 source 'https://rails-assets.org' do
@@ -81,6 +85,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   # A library for generating fake data such as names, addresses, and phone numbers. 
   gem 'faker'
+  # Generates Brazilian CPF numbers for use in testing.
+  gem 'cpf_faker'
 end
 
 group :test do

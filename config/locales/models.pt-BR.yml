@@ -44,6 +44,7 @@
         password_confirmation: Confirmação de Senha
       patient:
         name: Nome
+        cpf: CPF
         birth: Nascimento
         phone: Telefone
         info: Informações
