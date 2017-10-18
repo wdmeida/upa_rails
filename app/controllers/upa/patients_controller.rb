@@ -45,6 +45,7 @@ class Upa::PatientsController < UpaController
                                       :birth,
                                       :phone,
                                       :genre,
+                                      :cpf,
                                       :info)
     end
 

@@ -14,5 +14,10 @@ class Patient < ApplicationRecord
                               with: PatternValidation::PHONE, 
                               message: I18n.t('messages.field_invalid') 
                             }
+  validates :cpf, presence: true,
+                  format: {
+                            with: PatternValidation::CPF,
+                            message: I18n.t('messages.field_invalid')
+                          }
   validates :genre, presence: true
 end

@@ -81,6 +81,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   # A library for generating fake data such as names, addresses, and phone numbers. 
   gem 'faker'
+  # Generates Brazilian CPF numbers for use in testing.
+  gem 'cpf_faker'
 end
 
 group :test do
