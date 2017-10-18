@@ -51,7 +51,7 @@ class Upa::PatientsController < UpaController
 
     def set_patient
       begin
-        @patient = Patient.find(params[:id])      
+        @patient = Patient.friendly.find(params[:id])      
       rescue => exception
         head :not_found
       end
