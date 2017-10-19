@@ -4,40 +4,18 @@
         <small class="text-muted"><%= t('labels.listed') %></small>
     </h3>    
 </div>
-    
-<%= link_to new_backoffice_doctor_path, :class => "btn btn-outline-success btn-lg btn-block" do %>
+
+<%= render partial: 'layouts/shared/search',
+           locals: {
+                      path: backoffice_doctors_path,
+                      field_name: :name_or_specialization_description_cont,
+                      type_button: 'outline-danger'
+                    } %>
+
+<%= link_to new_backoffice_doctor_path, :class => "btn btn-danger btn-block btn-block-backoffice" do %>
     <%= t('buttons.new') %>
 <% end %>
 
-<div class="row">
-    <div class="col">
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th><%= @doctors.model.human_attribute_name("name") %></th>
-                    <th><%= @doctors.model.human_attribute_name("specialization") %></th>
-                    <th><%= t('labels.actions') %></th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @doctors.each do |doctor| %>
-                    <tr>
-                        <td scope="row"><%= doctor.id %></td>
-                        <td><%= doctor.name %></td>
-                        <td><%= doctor.specialization.description %></td>
-                        <td>
-                            
-                            <%= link_to edit_backoffice_doctor_path(doctor), :class => "btn btn-outline-primary" do %>
-                                <%= fa_icon "edit" %>                            
-                            <% end %>
-
-                        </td>
-                    </tr>
-                <% end %>
-            </tbody>
-        </table>
-        <%= paginate @doctors, theme: 'twitter-bootstrap-4' %>
-    </div>
+<div id="list-doctors">
+<%= render partial: 'backoffice/doctors/shared/doctors' %>
 </div>

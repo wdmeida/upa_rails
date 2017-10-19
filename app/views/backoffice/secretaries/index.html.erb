@@ -1,48 +1,21 @@
-
 <div class="row">
-    <h3 class="mx-auto">
-        <%= @secretaries.model_name.human(count: @secretaries.length) %>
-        <small class="text-muted"><%= t('labels.listed') %></small>
-    </h3>    
+  <h3 class="mx-auto">
+    <%= @secretaries.model_name.human(count: @secretaries.length) %>
+    <small class="text-muted"><%= t('labels.listed') %></small>
+  </h3>    
 </div>
 
-<%= link_to new_backoffice_secretary_path, :class => "btn btn-outline-success btn-lg btn-block" do %>
-    <%= t('buttons.new') %>
+<%= render partial: 'layouts/shared/search',
+           locals: {
+                    path: backoffice_secretaries_path,
+                    field_name: :name_or_email_cont,
+                    type_button: 'outline-dark'
+                  } %>
+
+<%= link_to new_backoffice_secretary_path, :class => "btn btn-dark btn-block btn-block-backoffice" do %>
+  <%= t('buttons.new') %>
 <% end %>
 
-    <div class="row">
-        <div class="col">
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th><%= @secretaries.model.human_attribute_name("name") %></th>
-                        <th><%= @secretaries.model.human_attribute_name("email") %></th>
-                        <th><%= t('labels.actions') %></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% @secretaries.each do |secretary| %>
-                        <tr>
-                            <td scope="row"><%= secretary.id %></td>
-                            <td><%= secretary.name %></td>
-                            <td><%= secretary.email %></td>
-                            <td>
-                                
-                                <%= link_to edit_backoffice_secretary_path(secretary), :class => "btn btn-outline-primary" do %>
-                                    <%= fa_icon "edit" %>                                
-                                <% end %>
-
-                                <%= link_to backoffice_secretary_path(secretary), method: :delete, :class => "btn btn-outline-danger",
-                                    data: {confirm: t('messages.confirm_with', :item => secretary.name)} do %>
-                                    <%= fa_icon "remove" %>
-                                <% end %>
-                            </td>
-                        </tr>
-                    <% end %>
-                </tbody>
-            </table>
-            <%= paginate @secretaries, theme: 'twitter-bootstrap-4' %>
-        </div>
-    </div>
+<div id="list-secretaries">
+  <%= render partial: 'backoffice/secretaries/shared/secretaries' %>
+</div>

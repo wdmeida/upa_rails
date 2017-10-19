@@ -2,7 +2,15 @@ class Backoffice::SecretariesController < BackofficeController
   before_action :set_secretary, only: [:destroy, :edit, :update]
 
   def index
-    @secretaries = Secretary.page(params[:page]).per(Constants::QTT_PER_PAGE)
+    @q = Secretary.ransack(params[:q])
+    @secretaries = @q.result
+                     .page(params[:page])
+                     .per(Constants::QTT_PER_PAGE)
+
+    respond_to do |format|
+      format.html {}
+      format.js { render layout: false }
+    end
   end
 
   def new

@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>
+            <%= sort_link @q, :name, 
+                              @doctors.model.human_attribute_name("name"),
+                              default_order: :desc %>
+          </th>
+          <th>
+            <%= sort_link @q, :specialization_description,
+                              @doctors.model.human_attribute_name("specialization"),
+                              default_order: :desc %>
+          </th>
+          <th><%= t('labels.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @doctors.each do |doctor| %>
+          <tr>
+            <td scope="row"><%= doctor.id %></td>
+            <td><%= doctor.name %></td>
+            <td><%= doctor.specialization.description %></td>
+            <td>
+                          
+              <%= link_to edit_backoffice_doctor_path(doctor), :class => "btn btn-outline-primary" do %>
+                <%= fa_icon "edit" %>                            
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @doctors, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>
