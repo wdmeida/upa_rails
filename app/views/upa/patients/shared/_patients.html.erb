@@ -4,7 +4,11 @@
       <thead>
         <tr>
           <th>#</th>
-          <th class="text-center"><%= @patients.model.human_attribute_name('name') %></th>
+          <th class="text-center">
+            <%= sort_link @q, :name, 
+                              @patients.model.human_attribute_name('name'), 
+                              default_order: :desc %>
+          </th>
           <th class="text-center"><%= @patients.model.human_attribute_name('phone') %></th>
           <th class="text-center"><%= t('labels.actions') %></th>
         </tr>
