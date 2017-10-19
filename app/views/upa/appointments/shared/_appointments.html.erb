@@ -4,8 +4,16 @@
       <thead>
         <tr>
           <th>#</th>
-          <th class='text-center'><%= @appointments.model.human_attribute_name('patient') %></th>
-          <th class='text-center'><%= @appointments.model.human_attribute_name('datetime_appointment') %></th>
+          <th class='text-center'>
+            <%= sort_link @q, :patient_name, 
+                              @appointments.model.human_attribute_name('patient'),
+                              default_order: :desc %>
+          </th>
+          <th class='text-center'>
+            <%= sort_link @q, :datetime_appointment, 
+                              @appointments.model.human_attribute_name('datetime_appointment'), 
+                              default_order: :desc %>
+          </th>
           <th class='text-center'><%= t('labels.actions') %></th>
         </tr>
       </thead>

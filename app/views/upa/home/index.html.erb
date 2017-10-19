@@ -10,7 +10,7 @@
 </div>
 
 <div class="row"> 
-  <div class="col-lg-4">
+  <div class="col-lg-6">
     <h2>Pacientes</h2>
     <p>
       Cadastre novos pacientes ou pesquise por um previamente cadastrdo para realizar o atendimento.
@@ -21,28 +21,16 @@
       <% end %>
     </p>
   </div>
-  <div class="col-lg-4">
-      <h2>Atendimentos</h2>
-      <p>
-        Visualize os atendimentos registrados, controle os que ainda não foram finalizados ou altere 
-        as informações.
-      </p>
-      <p>
-        <%= link_to upa_appointments_path, class: 'btn btn-danger' do %>
-          <%= t('upa_menu.appointment') %>
-        <% end %> 
-      </p>
-    </div>
-    <div class="col-lg-4">
-      <h2>Atendimentos</h2>
-      <p>
-        Visualize os atendimentos registrados, controle os que ainda não foram finalizados ou altere 
-        as informações.
-      </p>
-      <p>
-        <%= link_to upa_appointments_path, class: 'btn btn-success' do %>
-          <%= t('upa_menu.appointment') %>
-        <% end %> 
-      </p>
-    </div>
+  <div class="col-lg-6">
+    <h2>Atendimentos</h2>
+    <p>
+      Visualize os atendimentos registrados, controle os que ainda não foram finalizados ou altere 
+      as informações.
+    </p>
+    <p>
+      <%= link_to upa_appointments_path, class: 'btn btn-danger' do %>
+        <%= t('upa_menu.appointment') %>
+      <% end %> 
+    </p>
+  </div>
 </div>
