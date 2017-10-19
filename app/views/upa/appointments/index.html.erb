@@ -5,18 +5,12 @@
   </h3>
 </div>
 
-<div class="row">
-  <div class="col-lg-12">
-    <%= search_form_for @q, { url: upa_appointments_path } do |f| %>
-      <div class="input-group">
-        <%= f.search_field :datetime_appointment, class: 'form-control', placeholder: 'Pesquisar' %>
-        <span class="input-group-btn">
-          <%= f.submit t('buttons.search'), class: 'btn btn-outline-danger' %>
-        </span>
-      </div>
-    <% end %>
-  </div>
-</div>
+<%= render partial: 'upa/shared/search',
+           locals: { 
+            path: upa_appointments_path, 
+            field_name: :datetime_appointment, 
+            type_button: 'outline-primary' 
+                   } %>
 
 <div class="row">
   <div class="col">

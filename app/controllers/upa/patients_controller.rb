@@ -6,6 +6,11 @@ class Upa::PatientsController < UpaController
     @patients = @q.result
                   .page(params[:page])
                   .per(Constants::QTT_PER_PAGE)
+
+    respond_to do |format|
+      format.html {}
+      format.js { render layout: false }
+    end
   end
 
   def new

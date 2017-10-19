@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class="text-center"><%= @patients.model.human_attribute_name('name') %></th>
+          <th class="text-center"><%= @patients.model.human_attribute_name('phone') %></th>
+          <th class="text-center"><%= t('labels.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @patients.each do |patient| %>
+          <tr>
+            <td scope='row'><%= patient.id %></td>
+            <td class="text-center"><%= patient.name %></td>
+            <td class="text-center"><%= patient.phone %></td>
+            <td class="text-center">
+              <%= link_to edit_upa_patient_path(patient), class: 'btn btn-outline-info' do %>
+                <%= fa_icon "edit" %>
+              <% end %>
+              <%= link_to new_upa_appointment_path(:patient_id => patient.id), class: 'btn btn-outline-danger' do %>
+                <%= fa_icon "medkit" %>          
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @patients, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>
