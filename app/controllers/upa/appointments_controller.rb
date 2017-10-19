@@ -8,6 +8,11 @@ class Upa::AppointmentsController < UpaController
     @appointments = @q.result.includes(:patient)
                               .page(params[:page])
                               .per(Constants::QTT_PER_PAGE)
+    
+    respond_to do |format|
+      format.html {}
+      format.js { render layout: false }
+    end
   end
 
   def new

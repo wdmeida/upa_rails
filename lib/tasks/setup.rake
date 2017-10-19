@@ -63,7 +63,7 @@ namespace :setup do
     puts 'Cadastrando Pacientes Fake...'
     
     ActiveRecord::Base.transaction do
-      50.times do
+      400.times do
         Patient.create!(
           name: Faker::Name.name,     
           birth: Faker::Date.birthday(1, 80),
@@ -75,6 +75,29 @@ namespace :setup do
     end
 
     puts 'Cadastrando Pacientes Fake [Ok]'
+
+    puts 'Cadastrando Atendimentos Fake...'
+    
+    ActiveRecord::Base.transaction do
+      patients = Patient.all
+      doctors = Doctor.all
+
+      500.times do
+        
+        doctor = doctors.sample
+        
+        Appointment.create!(
+          patient: patients.sample,     
+          doctor: doctor,
+          specialization: doctor.specialization,
+          info: Faker::Lorem.paragraph(2, true),
+          appointment_finished: [true, false].sample,
+          datetime_appointment: Faker::Time.between(DateTime.now - 5, DateTime.now),
+        )
+      end
+    end
+
+    puts 'Cadastrando Atendimentos Fake [Ok]'
 
   end
 

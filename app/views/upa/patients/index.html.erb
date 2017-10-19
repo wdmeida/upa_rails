@@ -5,18 +5,12 @@
   </h3>    
 </div>
 
-<div class="row">
-  <div class="col-lg-12">
-    <%= search_form_for @q, { url: upa_patients_path } do |f| %>  
-    <div class="input-group">
-      <%= f.search_field :name_cont, class: 'form-control', placeholder: 'Pesquisar' %>
-      <span class="input-group-btn">
-        <%= f.submit t('buttons.search'), class: 'btn btn-outline-primary' %>
-      </span>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= render partial: 'upa/shared/search',
+           locals: { 
+            path: upa_patients_path, 
+            field_name: :name_cont, 
+            type_button: 'outline-primary' 
+          } %>
 
 <div class="row">
   <div class="col-lg-12" style="margin-top: 20px; margin-bottom: 20px;">
@@ -26,35 +20,6 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th class="text-center"><%= @patients.model.human_attribute_name('name') %></th>
-          <th class="text-center"><%= @patients.model.human_attribute_name('phone') %></th>
-          <th class="text-center"><%= t('labels.actions') %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @patients.each do |patient| %>
-          <tr>
-            <td scope='row'><%= patient.id %></td>
-            <td class="text-center"><%= patient.name %></td>
-            <td class="text-center"><%= patient.phone %></td>
-            <td class="text-center">
-              <%= link_to edit_upa_patient_path(patient), class: 'btn btn-outline-info' do %>
-                <%= fa_icon "edit" %>
-              <% end %>
-              <%= link_to new_upa_appointment_path(:patient_id => patient.id), class: 'btn btn-outline-danger' do %>
-                <%= fa_icon "medkit" %>          
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= paginate @patients, theme: 'twitter-bootstrap-4' %>
-  </div>
+<div id="list-patients">
+  <%= render partial: 'upa/patients/shared/patients' %>
 </div>
