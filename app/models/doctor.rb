@@ -3,7 +3,7 @@ class Doctor < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
-  belongs_to :specialization
+  belongs_to :specialization, counter_cache: true
   
   has_many :appointments
   has_many :patients, :through => :appointments

@@ -51,6 +51,7 @@ GEM
       rails (>= 3.1)
     builder (3.2.3)
     byebug (9.1.0)
+    chartkick (2.2.4)
     clipboard (1.1.1)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -291,6 +292,7 @@ DEPENDENCIES
   better_errors
   bootstrap4-kaminari-views
   byebug
+  chartkick
   coffee-rails (~> 4.2)
   cpf_faker
   database_cleaner
