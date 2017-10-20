@@ -3,13 +3,17 @@
     confirm: Deseja realmente excluir este item?
     confirm_with: Deseja realmente excluir %{item}?
     created: Item cadastrado com sucesso!
-    created_with: '%{item} criado com sucesso!'
+    created_with: '%{kind} %{item} cadastrado(a) com sucesso!'
     updated: Item atualizado com sucesso!
-    updated_with: Item %{item} atualizado com sucesso!
+    updated_with: '%{kind} %{item} atualizado(a) com sucesso!'
     destroyed: Item removido com sucesso!
-    destroyed_with: Item %{item} removido com sucesso!
+    destroyed_with: '%{kind} %{item} removido(a) com sucesso!'
     creating: Criando
     editing: Editando
     updating: Atualizando
+    field_invalid: inválido, preencha novamente!
     appointment:
-      created_with: Consulta de %{item} agendada com sucesso!
+      created_with: Atendimento ao paciente %{item} agendado com sucesso!
+      updated_with: Atendimento ao paciente %{item} atualizado com sucesso!
+      destroyed_with: Atendimento ao paciente %{item} removido com sucesso!
+      confirm_with: Deseja realmente excluir o atendimento ao paciente %{item}?

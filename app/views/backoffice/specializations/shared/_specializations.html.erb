@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>
+            <%= sort_link @q, :description,
+                               @specializations.model.human_attribute_name("description"),
+                               default_order: :desc %>
+          </th>
+          <th><%= t('labels.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @specializations.each do |specialization| %>
+          <tr>
+            <td scope="row"><%= specialization.id %></td>
+            <td><%= specialization.description %></td>
+            <td>
+              <%= link_to edit_backoffice_specialization_path(specialization), :class => "btn btn-outline-primary" do %>
+                <%= fa_icon "edit" %>                            
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @specializations, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>

@@ -43,7 +43,13 @@ gem 'money-rails', '~>1'
 # A kickass library to manage your poppers
 gem 'popper_js', '~> 1.12.3'
 # The iconic font and CSS toolkit
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+# The safe Markdown parser, reloaded.
+gem 'redcarpet'
+# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
+gem 'friendly_id'
+# Create beautiful JavaScript charts with one line of Ruby https://www.chartkick.com
+gem 'chartkick'
 
 # Rails Assets
 source 'https://rails-assets.org' do
@@ -57,6 +63,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootbox'
   # jQuery plugin select date and time.
   gem 'rails-assets-datetimepicker'
+  # Inputmask is a javascript library which creates an input mask. Inputmask can run against vanilla javascript, jQuery and jqlite.
+  gem 'rails-assets-inputmask'
 end
 
 # Use jquery as the JavaScript library
@@ -79,6 +87,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   # A library for generating fake data such as names, addresses, and phone numbers. 
   gem 'faker'
+  # Generates Brazilian CPF numbers for use in testing.
+  gem 'cpf_faker'
 end
 
 group :test do

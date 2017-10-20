@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th class='text-center'>
+            <%= sort_link @q, :patient_name, 
+                              @appointments.model.human_attribute_name('patient'),
+                              default_order: :desc %>
+          </th>
+          <th class='text-center'>
+            <%= sort_link @q, :datetime_appointment, 
+                              @appointments.model.human_attribute_name('datetime_appointment'), 
+                              default_order: :desc %>
+          </th>
+          <th class='text-center'><%= t('labels.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @appointments.each do |appointment| %>
+          <tr>
+            <td scope='row'><%= appointment.id %></td>
+            <td class='text-center'><%= appointment.patient.name %></td>
+            <td class='text-center'><%= l(appointment.datetime_appointment, :format => :long) %></td>
+            <td class='text-center'>
+                <%= link_to edit_upa_appointment_path(appointment), :class => 'btn btn-outline-info' do %>
+                  <%= fa_icon "edit" %>
+                <% end %>
+                <%= link_to upa_appointment_path(appointment), method: :delete, :class => 'btn btn-outline-danger',
+                  data: {confirm: t('messages.appointment.confirm_with', :item => appointment.patient.name)} do %>
+                  <%= fa_icon "remove" %>
+                <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @appointments, theme: 'twitter-bootstrap-4' %>
+  </div>
+</div>

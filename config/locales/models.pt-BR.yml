@@ -4,6 +4,8 @@
       admin:
         one: Administrador
         other: Administradores
+      dashboard:
+        one: Area Administrativa
       doctor:
         one: Médico
         other: Médicos
@@ -44,6 +46,7 @@
         password_confirmation: Confirmação de Senha
       patient:
         name: Nome
+        cpf: CPF
         birth: Nascimento
         phone: Telefone
         info: Informações
@@ -53,5 +56,5 @@
         doctor: Médico
         specialization: Especialização
         datetime_appointment: Data/Hora Atendimento
-        diagnostic: Diagnóstico
+        info: Informações
         appointment_finished: Atendimento finalizado?

@@ -7,43 +7,30 @@
   <p>
     <%= l DateTime.now, format: :long %>
   </p>
-  <p>
-    <a href="#" class="btn btn-lg btn-success" role="button">Get started today</a>
-  </p>
 </div>
 
 <div class="row"> 
-  <div class="col-lg-4">
-    <h2>Heading</h2>
+  <div class="col-lg-6">
+    <h2>Pacientes</h2>
     <p>
-      A Upa é pa é pa é pa é pa épa é pa é pa é pa é pa é pa é pa é vpa é pa é pa é pa é
-      pa é pa é pa é pa é pa é pa é pa é pa év pa é pa é pa é pa évv pa é v v pa évpa épa é
-      pa é pa é pa é v v.
+      Cadastre novos pacientes ou pesquise por um previamente cadastrdo para realizar o atendimento.
     </p>
     <p>
-      <a href="#" class="btn btn-primary">View Details</a>
+      <%= link_to upa_patients_path, class: 'btn btn-primary' do %>
+        <%= t('upa_menu.patients') %>
+      <% end %>
     </p>
   </div>
-  <div class="col-lg-4">
-      <h2>Heading</h2>
-      <p>
-        A Upa é pa é pa é pa é pa épa é pa é pa é pa é pa é pa é pa é vpa é pa é pa é pa é
-        pa é pa é pa é pa é pa é pa é pa é pa év pa é pa é pa é pa évv pa é v v pa évpa épa é
-        pa é pa é pa é v v.
-      </p>
-      <p>
-        <a href="#" class="btn btn-primary">View Details</a>
-      </p>
-    </div>
-    <div class="col-lg-4">
-        <h2>Heading</h2>
-        <p>
-          A Upa é pa é pa é pa é pa épa é pa é pa é pa é pa é pa é pa é vpa é pa é pa é pa é
-          pa é pa é pa é pa é pa é pa é pa é pa év pa é pa é pa é pa évv pa é v v pa évpa épa é
-          pa é pa é pa é v v.
-        </p>
-        <p>
-          <a href="#" class="btn btn-primary">View Details</a>
-        </p>
-      </div>
+  <div class="col-lg-6">
+    <h2>Atendimentos</h2>
+    <p>
+      Visualize os atendimentos registrados, controle os que ainda não foram finalizados ou altere 
+      as informações.
+    </p>
+    <p>
+      <%= link_to upa_appointments_path, class: 'btn btn-danger' do %>
+        <%= t('upa_menu.appointment') %>
+      <% end %> 
+    </p>
+  </div>
 </div>

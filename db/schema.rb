@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923211823) do
+ActiveRecord::Schema.define(version: 20171020171954) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170923211823) do
     t.integer  "patient_id"
     t.integer  "doctor_id"
     t.datetime "datetime_appointment"
-    t.text     "diagnostic"
+    t.text     "info"
     t.boolean  "appointment_finished"
     t.integer  "specialization_id"
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
@@ -67,6 +67,18 @@ ActiveRecord::Schema.define(version: 20170923211823) do
     t.index ["specialization_id"], name: "index_doctors_on_specialization_id"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string   "name"
     t.date     "birth"
@@ -74,6 +86,9 @@ ActiveRecord::Schema.define(version: 20170923211823) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "genre"
+    t.string   "cpf"
+    t.string   "slug"
+    t.index ["slug"], name: "index_patients_on_slug", unique: true
   end
 
   create_table "secretaries", force: :cascade do |t|
@@ -96,8 +111,10 @@ ActiveRecord::Schema.define(version: 20170923211823) do
 
   create_table "specializations", force: :cascade do |t|
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "doctors_count"
+    t.integer  "appointments_count"
   end
 
 end

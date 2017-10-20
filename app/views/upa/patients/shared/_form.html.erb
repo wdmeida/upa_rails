@@ -8,7 +8,7 @@
 <%= form_for([:upa, @patient], html: {:novalidate => 'novalidate', :id => 'form-patient' }) do |f| %>
   
   <div class="row">  
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-9">
       <%= f.label :name, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
       <% if @patient.errors.messages[:name].empty? %>      
         <%= f.text_field :name, { :class => "form-control", :required => 'required' } %>
@@ -19,15 +19,27 @@
         </div>  
       <% end %>
     </div>
+
+    <div class="form-group col-md-3">
+      <%= f.label :cpf, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
+      <% if @patient.errors.messages[:cpf].empty? %>
+        <%= f.text_field :cpf, { :class => 'form-control cpf-input', :required => 'required' } %>
+      <% else %>
+        <%= f.text_field :cpf, { :class => 'form-control is-invalid cpf-input', :required => 'required' } %>
+        <div class="form-control-feedback">
+          <%= @patient.errors.full_messages_for(:cpf)[0] %>
+        </div>      
+      <% end %>
+    </div>
   </div>
 
   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label :phone, :class => 'form-control-label' %> <span class="form-control-feedback">*</span>
       <% if @patient.errors.messages[:phone].empty? %>      
-        <%= f.text_field :phone, :class => 'form-control', :required => 'required' %>
+        <%= f.text_field :phone, :class => 'form-control phone-input', :required => 'required' %>
       <% else %>
-        <%= f.text_field :phone, :class => 'form-control is-invalid', :required => 'required' %>      
+        <%= f.text_field :phone, :class => 'form-control is-invalid phone-input', :required => 'required' %>      
         <div class="form-control-feedback">
           <%= @patient.errors.full_messages_for(:phone)[0] %>
         </div>  

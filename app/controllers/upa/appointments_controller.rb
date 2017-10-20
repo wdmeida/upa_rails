@@ -8,6 +8,11 @@ class Upa::AppointmentsController < UpaController
     @appointments = @q.result.includes(:patient)
                               .page(params[:page])
                               .per(Constants::QTT_PER_PAGE)
+    
+    respond_to do |format|
+      format.html {}
+      format.js { render layout: false }
+    end
   end
 
   def new
@@ -30,7 +35,8 @@ class Upa::AppointmentsController < UpaController
 
   def destroy
     if @appointment.destroy
-      redirect_to upa_appointments_path, notice: I18n.t('messages.destroyed_with', :item => @patient.name)
+      redirect_to upa_appointments_path, notice: I18n.t('messages.appointment.destroyed_with', 
+                                                        :item => @patient.name)
     else
       render :index
     end
@@ -38,7 +44,8 @@ class Upa::AppointmentsController < UpaController
 
   def update
     if @appointment.update(params_appointment)
-      redirect_to upa_appointments_path, notice: I18n.t('messages.updated_with', :item => @appointment.patient.name)
+      redirect_to upa_appointments_path, notice: I18n.t('messages.appointment.updated_with', 
+                                                        :item => @appointment.patient.name)
     else
       render :edit
     end
@@ -48,7 +55,7 @@ class Upa::AppointmentsController < UpaController
     def params_appointment
       params.require(:appointment).permit(:datetime_appointment,
                                           :appointment_finished,
-                                          :diagnostic,
+                                          :info,
                                           :patient_id,
                                           :specialization_id,
                                           :doctor_id)
