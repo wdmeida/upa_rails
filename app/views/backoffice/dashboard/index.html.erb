@@ -1,21 +1,21 @@
 <div class="row">
-  <h2 class="mx-auto">
+  <h3 class="mx-auto">
       <%= t('activerecord.models.dashboard.one') %>
-  </h2>    
+  </h3>    
 </div>
 
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-5">
     <h3 class="mx-auto">
       <small class="text-muted"><%= t('labels.doctors_count_specialization') %></small>
     </h3>    
-    <%= pie_chart @specializations_group, download: true %>
+    <%= bar_chart @specializations_group, download: true %>
   </div>
-  
+  <div class="col-lg-1"></div>
   <div class="col-lg-6">
     <h3 class="mx-auto">
-      <small class="text-muted"><%= t('labels.doctors_count_specialization') %></small>
+      <small class="text-muted"><%= t('labels.appointments_count_specialization') %></small>
     </h3>
-    <%= column_chart @specializations_group, download: true %>      
+    <%= column_chart @appointments_group, colors: ['#563d7c'], download: true %>      
   </div>
 </div>

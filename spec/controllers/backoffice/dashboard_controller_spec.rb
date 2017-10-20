@@ -16,6 +16,10 @@ RSpec.describe Backoffice::DashboardController, type: :controller do
       it 'assigns @specializations_group' do
         expect(:specializations_group).to be_truthy
       end
+      
+      it 'assigns @appointments_group' do
+        expect(:appointments_group).to be_truthy
+      end
 
     end
   end
