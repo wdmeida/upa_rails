@@ -14,4 +14,4 @@ Rails.application.config.assets.precompile += %w( backoffice_devise.scss
                                                   upa_devise.scss
                                                   upa.css )
 
-# Rails.application.config.assets.precompile += %w( upa/patient.js )
+Rails.application.config.assets.precompile += %w( charts.js )

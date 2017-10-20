@@ -4,6 +4,7 @@
     <title>Upa</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'charts' %> 
   </head>
 
   <body>
@@ -16,8 +17,7 @@
         <%= yield %> 
       </div>
 
-      <%= javascript_include_tag 'application' %>  
-
+      <%= javascript_include_tag 'application' %>
       <%= render partial: 'layouts/shared/notifications' %>
   </body>
 </html>

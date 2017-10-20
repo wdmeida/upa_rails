@@ -4,6 +4,8 @@
       admin:
         one: Administrador
         other: Administradores
+      dashboard:
+        one: Area Administrativa
       doctor:
         one: Médico
         other: Médicos
