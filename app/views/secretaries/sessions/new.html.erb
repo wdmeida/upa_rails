@@ -1,25 +1,34 @@
-<div class="form-signin">
-  <h4 class="form-signin-heading">
-    <%= t('labels.login_upa') %>
-  </h4>
+<div class="row">
+  <div class="col-sm-1 col-md-3 col-md-4 col-xl-4"></div>
 
-  <hr class="my-4">
+  <div class="col-sm-10 col-md-6 col-md-4 col-xl-4">
+    <div class="form-login">
+      <h2><%= t('labels.login_admin') %></h2>
+      <hr class="my-4">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+        </div>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Senha' %>
+        </div>
 
-    <%= f.label :email, class: 'sr-only' %>
-    <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+        <% if devise_mapping.rememberable? -%>
+          <div class="form-check">
+            <%= f.check_box :remember_me, class: 'form-check-input', :style => "margin-left: 0;" %>            
+            <%= f.label t('labels.remember_me'), class: 'form-check-label' %>
+          </div>
+        <% end -%>
+      
+        <div class="actions">
+          <%= f.submit t('buttons.submit'), class: 'btn btn-success btn-block' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-    <%= f.label :password, class: 'sr-only' %><br />
-    <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Senha' %>
-    
-    <% if devise_mapping.rememberable? -%>
-      <div class="form-check">
-        <%= f.check_box :remember_me, class: 'form-check-input', :style => "margin-left: 0;" %>            
-        <%= f.label t('labels.remember_me'), class: 'form-check-label' %>
-      </div>
-    <% end -%>
-
-    <%= f.submit t('buttons.submit'), class: 'btn btn-success btn-block' %>
-  <% end %>
+  <div class="col-sm-1 col-md-3 col-md-4 col-xl-4"></div>
 </div>
