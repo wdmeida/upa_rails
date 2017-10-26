@@ -3,7 +3,7 @@ const validationFormSubmit = function (idForm) {
   window.addEventListener("load", function() {
     var form = document.getElementById(idForm);
     form.addEventListener("submit", function(event) {
-      if (form.checkValidity() == false) {
+      if (form.checkValidity() === false) {
         event.preventDefault();
         event.stopPropagation();
       }

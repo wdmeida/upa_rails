@@ -17,6 +17,10 @@
         <%= yield %> 
       </div>
 
+      <% if current_admin %>
+        <%= render :partial => "layouts/backoffice_shared/footer" %>
+      <% end %>
+
       <%= javascript_include_tag 'application' %>
       <%= render partial: 'layouts/shared/notifications' %>
   </body>
