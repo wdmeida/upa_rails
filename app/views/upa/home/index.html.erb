@@ -10,10 +10,11 @@
 </div>
 
 <div class="row"> 
+ 
   <div class="col-lg-6">
-    <h2>Pacientes</h2>
+    <h2><%= t('activerecord.models.patient.other') %></h2>
     <p>
-      Cadastre novos pacientes ou pesquise por um previamente cadastrdo para realizar o atendimento.
+      <%= t('labels.message_patients') %>
     </p>
     <p>
       <%= link_to upa_patients_path, class: 'btn btn-primary' do %>
@@ -21,11 +22,11 @@
       <% end %>
     </p>
   </div>
+  
   <div class="col-lg-6">
-    <h2>Atendimentos</h2>
+    <h2><%= t('activerecord.models.appointment.other') %></h2>
     <p>
-      Visualize os atendimentos registrados, controle os que ainda não foram finalizados ou altere 
-      as informações.
+      <%= t('labels.message_appointments') %>
     </p>
     <p>
       <%= link_to upa_appointments_path, class: 'btn btn-danger' do %>
@@ -33,4 +34,5 @@
       <% end %> 
     </p>
   </div>
-</div>
+
+</div> <!-- row -->

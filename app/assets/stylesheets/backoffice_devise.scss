@@ -1,13 +1,10 @@
-@import './custom_form_login';
-
-$primary-color-background: #563d7c;
-$secondary-color-background: #fff;
-$border-color: #000;
+@import './_partials/_form_login';
+@import './_variables';
 
 body {
-  @include custom-body($primary-color-background);
+  @include custom-body($primary-color-backoffice);
 }
 
 .form-login {
-  @include custom-form-login($border-color, $secondary-color-background);
+  @include custom-form-login($border-color, $secondary-color-backoffice);
 }
