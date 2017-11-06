@@ -16,6 +16,11 @@
     </main>
 
     <%= render partial: 'layouts/shared/notifications' %>
+    
+    <div class="mt-4">
+      <p class="text-muted"><%= t('labels.about_app') %></p>
+    </div> 
+    
     <%= render :partial => "layouts/shared/footer" %>
     <%= javascript_include_tag 'application' %>  
   </body>
