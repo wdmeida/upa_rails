@@ -12,7 +12,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( materialize_init.js )
 Rails.application.config.assets.precompile += %w( backoffice_devise.scss
                                                   upa_devise.scss
-                                                  _custom_form_login.scss
+                                                  _partials/_form_login.scss
                                                   upa.css )
 
 Rails.application.config.assets.precompile += %w( charts.js )
