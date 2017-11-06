@@ -18,9 +18,34 @@
  *= require_self
  */
 
-body, html {
-  height: 100vh; 
+@import '_variables';
+@import '_partials/_footer';
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
 }
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+code {
+  font-size: 80%;
+}
+
 
 h3 {
   margin-top: 2rem;

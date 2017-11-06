@@ -4,6 +4,7 @@
     <title>Upa</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag    'backoffice', media: 'all' %>
     <%= javascript_include_tag 'charts' %> 
   </head>
 
@@ -13,12 +14,16 @@
         <%= render :partial => "layouts/backoffice_shared/navigation" %>
       <% end %>
       
-      <div class="container">
+      <main role="main" class="container">
         <%= yield %> 
-      </div>
+      </main>
+
+      <div class="mt-4">
+        <p class="text-muted"><%= t('labels.about_app') %></p>
+      </div>      
 
       <% if current_admin %>
-        <%= render :partial => "layouts/backoffice_shared/footer" %>
+        <%= render :partial => "layouts/shared/footer" %>
       <% end %>
 
       <%= javascript_include_tag 'application' %>
