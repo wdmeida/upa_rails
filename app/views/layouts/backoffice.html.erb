@@ -13,9 +13,9 @@
         <%= render :partial => "layouts/backoffice_shared/navigation" %>
       <% end %>
       
-      <div class="container">
+      <main role="main" class="container">
         <%= yield %> 
-      </div>
+      </main>
 
       <% if current_admin %>
         <%= render :partial => "layouts/backoffice_shared/footer" %>
