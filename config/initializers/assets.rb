@@ -13,6 +13,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( backoffice_devise.scss
                                                   upa_devise.scss
                                                   _partials/_form_login.scss
-                                                  upa.css )
+                                                  backoffice.scss
+                                                  upa.scss )
 
 Rails.application.config.assets.precompile += %w( charts.js )

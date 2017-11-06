@@ -16,4 +16,5 @@
     selected_specialization: Seleciona a especialização...
     fields_required: '* Campos de preenchimento obrigatório.'
     doctors_count_specialization: Médicos Disponíveis por Especialização 
-    appointments_count_specialization: Atendimentos Realizados por Especialização 
+    appointments_count_specialization: Atendimentos Realizados por Especialização
+    about_app: Aplicação de exemplo minicurso Ruby on Rails

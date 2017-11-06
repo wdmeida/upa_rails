@@ -1,8 +1,6 @@
 @import './_partials/_form_login';
 @import './_variables';
 
-
-
 body {
   @include custom-body($primary-color-backoffice);
 }
