@@ -12,11 +12,11 @@
     <%= render :partial => 'layouts/upa_shared/navigation' %>
 
     <div class="container">
-        <%= yield %>        
+        <%= yield %>       
     </div>
 
-    <%= javascript_include_tag 'application' %>    
-
     <%= render partial: 'layouts/shared/notifications' %>
+    <%= render :partial => 'layouts/upa_shared/footer' %>
+    <%= javascript_include_tag 'application' %>  
   </body>
 </html>
