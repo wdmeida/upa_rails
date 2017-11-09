@@ -100,11 +100,13 @@ group :test do
   gem 'factory_girl_rails'
   # Adding methods from controller-testing
   gem 'rails-controller-testing'
+
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  # Gem Listen
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -112,7 +114,7 @@ group :development do
   # Preloader from rspec
   gem 'spring-commands-rspec'
   # Better error page for Rack apps
-  gem "better_errors"
+  gem 'better_errors'
   # Manage Procfile-based applications
   gem 'foreman'
 end
