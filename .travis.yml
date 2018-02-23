@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - 2.4.1
+install:
+  gem install rails
+cache:
+  directories:
+    'bundler'
+before_install:
+  - gem update --system
+  - gem --version
+after_install:
+  - rails db:seed
+  - bundle exec rsped -fd

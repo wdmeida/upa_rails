@@ -85,7 +85,7 @@ group :development, :test do
   gem 'pry-rails'
   # RSpec for Rails-3
   gem 'rspec-rails', '~> 3.6'
-  # A library for generating fake data such as names, addresses, and phone numbers. 
+  # A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker'
   # Generates Brazilian CPF numbers for use in testing.
   gem 'cpf_faker'
@@ -100,7 +100,6 @@ group :test do
   gem 'factory_girl_rails'
   # Adding methods from controller-testing
   gem 'rails-controller-testing'
-
 end
 
 group :development do
