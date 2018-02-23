@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :patient do
     name { Faker::Name.name }
     birth { Faker::Date.birthday(1, 100) }

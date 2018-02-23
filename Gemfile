@@ -97,7 +97,7 @@ group :test do
   # Collection of testing matchers extracted from Shoulda.
   gem 'shoulda-matchers', '~> 3.1'
   # factory_girl is a fixtures replacement with a straightforward definition syntax
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   # Adding methods from controller-testing
   gem 'rails-controller-testing'
 end

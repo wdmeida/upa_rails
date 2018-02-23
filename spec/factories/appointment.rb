@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :appointment do
     patient { create(:patient) }
     specialization { create(:specialization) }

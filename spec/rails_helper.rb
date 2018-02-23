@@ -42,8 +42,8 @@ RSpec.configure do |config|
     end
   end
 
-  # Config factory girls
-  config.include FactoryGirl::Syntax::Methods
+  # Config factory bot
+  config.include FactoryBot::Syntax::Methods
 
   # Config DeviseTestControllersHelper
   config.include Devise::Test::ControllerHelpers, :type => :controller
