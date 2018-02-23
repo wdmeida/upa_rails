@@ -1,5 +1,7 @@
 # UPA Rails
 
+[![Build Status](https://travis-ci.org/wdmeida/upa_rails.svg?branch=master)](https://travis-ci.org/wdmeida/upa_rails)
+
 Projeto prático desenvolvido durante o minicurso de Ruby on Rails, ministrado a membros da Associação Comunitária do Bairro Boa Vista, na cidade de Barbacena - MG.
 
 ## Projeto
