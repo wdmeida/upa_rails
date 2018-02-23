@@ -1,14 +1,24 @@
 language: ruby
+
 rvm:
   - 2.4.1
-install:
-  gem install rails
-cache:
-  directories:
-    'bundler'
+
+cache: bundler
+
+gemfile:
+  - Gemfile
+
 before_install:
+  - 'rm ${BUNDLE_GEMFILE}.lock'
   - gem update --system
-  - gem --version
+
 after_install:
   - rails db:seed
-  - bundle exec rsped -fd
+  - rails spring rspec
+
+notifications:
+  email:
+    on_pull_requests: false
+    on_success: change
+    on_failure: always
+
