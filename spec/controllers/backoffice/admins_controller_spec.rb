@@ -56,7 +56,7 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
 
       context 'with valid params' do
         before do
-          post :create, params: { admin: admin_params }, headers: {}
+          post :create, params: { admin: admin_params }
         end
 
         it { is_expected.to respond_with(:redirect) }
@@ -67,7 +67,7 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
         let(:admin_invalid) { attributes_for(:admin, email: '') }
         
         before do
-          post :create, params: { admin: admin_invalid }, headers: {}
+          post :create, params: { admin: admin_invalid }
         end
 
         it { is_expected.to render_template(:new) }
@@ -76,7 +76,7 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
 
     context 'when user is logged out' do
       before do
-        post :create, params: { admin: admin_params }, headers: {}
+        post :create, params: { admin: admin_params }
       end
 
       it { is_expected.to redirect_to new_admin_session_path }
@@ -88,21 +88,21 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
       login_admin
 
       context 'with valid params' do
-        before { get :edit, params: { id: admin.id }, headers: {} }
+        before { get :edit, params: { id: admin.id } }
 
         it { is_expected.to respond_with(:ok) }
         it { is_expected.to render_template(:edit) }
       end
 
       context 'with invalid params' do
-        before { get :edit, params: { id: 999999 }, headers: {} }
+        before { get :edit, params: { id: 999999 } }
         
         it { is_expected.to respond_with(:not_found) }        
       end
     end
 
     context 'when user is logged out' do
-      before { get :edit, params: { id: admin.id }, headers: {} }
+      before { get :edit, params: { id: admin.id } }
 
       it { is_expected.to redirect_to new_admin_session_path }
     end
@@ -118,7 +118,7 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
 
       context 'with valid params' do
         before(:each) do
-          get :update, params: { id: admin.id, admin: admin_attr }, headers: {}
+          get :update, params: { id: admin.id, admin: admin_attr }
           admin.reload
         end
 
@@ -129,7 +129,7 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
 
       context 'with invalid params' do
         before(:each) do
-          get :update, params: { id: admin.id, admin: { name: '' } }, headers: {}
+          get :update, params: { id: admin.id, admin: { name: '' } }
         end
 
         it { is_expected.to render_template(:edit) }
@@ -138,7 +138,7 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
 
     context 'when user is logged out' do
       before do
-        get :update, params: { id: admin.id, admin: admin_attr }, headers: {}
+        get :update, params: { id: admin.id, admin: admin_attr }
       end
 
       it { is_expected.to redirect_to new_admin_session_path }
@@ -150,7 +150,7 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
       login_admin
 
       context 'with admin id is valid' do
-        before { delete :destroy, params: { id: admin.id }, headers: {} }
+        before { delete :destroy, params: { id: admin.id } }
 
         it { is_expected.to respond_with(:redirect) }
         
@@ -162,7 +162,7 @@ RSpec.describe Backoffice::AdminsController, type: :controller do
     end
     
     context 'when user is logged out' do
-      before { delete :destroy, params: { id: admin.id }, headers: {} }
+      before { delete :destroy, params: { id: admin.id } }
 
       it { is_expected.to redirect_to new_admin_session_path }
     end

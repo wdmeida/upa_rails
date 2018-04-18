@@ -51,9 +51,6 @@ Para acessar a aplicação basta acessar os seguinte endereços no navegador:
 
 ## Executando os testes
 
-Para executar os testes, basta executar o comando (**não esquecer de criar o banco de dados caso vá executar os testes antes do sistema**):
+Para executar os testes, basta executar o comando abaixo (**não esquecer de criar a base de dados antes de executar os testes**):
 
-```$ bundle exec spring rspec -fd```
-
-*Obs: A flag **-fd** é para que o resultado dos testes seja exibido em formato de documentação.
-
+```$ bundle exec rspec```

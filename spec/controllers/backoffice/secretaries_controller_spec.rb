@@ -57,7 +57,7 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
 
       context 'with valid params' do
         before do
-          post :create, params: { secretary: secretary_params }, headers: {}
+          post :create, params: { secretary: secretary_params }
         end
 
         it { is_expected.to respond_with(:redirect) }
@@ -68,7 +68,7 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
         let(:secretary_invalid) { attributes_for(:secretary, email: '') }
 
         before do
-          post :create, params: { secretary: secretary_invalid }, headers: {}
+          post :create, params: { secretary: secretary_invalid }
         end
 
         it { is_expected.to render_template(:new) }
@@ -77,7 +77,7 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
 
     context 'when user is logged out' do
       before do
-        post :create, params: { secretary: secretary_params }, headers: {}
+        post :create, params: { secretary: secretary_params }
       end
 
       it { is_expected.to redirect_to new_admin_session_path }
@@ -89,21 +89,21 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
       login_admin
 
       context 'with valid params' do
-        before { get :edit, params: { id: secretary.id }, headers: {} }
+        before { get :edit, params: { id: secretary.id } }
 
         it { is_expected.to respond_with(:ok) }
         it { is_expected.to render_template(:edit) }
       end
 
       context 'with invalid params' do
-        before { get :edit, params: { id: 99999 }, headers: {} }
+        before { get :edit, params: { id: 99999 } }
 
         it { is_expected.to respond_with(:not_found) }
       end
     end
 
     context 'when user is logged out' do
-      before { get :edit, params: { id: secretary.id }, headers: {} }
+      before { get :edit, params: { id: secretary.id } }
 
       it { is_expected.to redirect_to new_admin_session_path }
     end
@@ -119,7 +119,7 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
 
       context 'with valid params' do
         before(:each) do
-          get :update, params: { id: secretary.id, secretary: secretary_attr }, headers: {}
+          get :update, params: { id: secretary.id, secretary: secretary_attr }
           secretary.reload
         end
 
@@ -130,7 +130,7 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
 
       context 'with invalid params' do
         before(:each) do
-          get :update, params: { id: secretary.id, secretary: { name: '' } }, headers: {}
+          get :update, params: { id: secretary.id, secretary: { name: '' } }
         end
 
         it { is_expected.to render_template(:edit) }
@@ -139,7 +139,7 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
 
     context 'when user is logged out' do
       before do
-        get :update, params: { id: secretary.id, secretary: secretary_attr }, headers: {}
+        get :update, params: { id: secretary.id, secretary: secretary_attr }
       end
 
       it { is_expected.to redirect_to new_admin_session_path }
@@ -151,7 +151,7 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
       login_admin
 
       context 'with secretary id is valid' do
-        before { delete :destroy, params: { id: secretary.id }, headers: {} }
+        before { delete :destroy, params: { id: secretary.id } }
 
         it { is_expected.to respond_with(:redirect) }
 
@@ -163,7 +163,7 @@ RSpec.describe Backoffice::SecretariesController, type: :controller do
     end
 
     context 'when user is logged out' do
-      before { delete :destroy, params: { id: secretary.id }, headers: {} }
+      before { delete :destroy, params: { id: secretary.id } }
 
       it { is_expected.to redirect_to new_admin_session_path }
     end
