@@ -7,21 +7,21 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
-gem 'rails-i18n', '~> 5.0.0'
+gem 'rails-i18n'
 # Help ActiveRecord::Enum feature to work fine with I18n and simple_form. 
 gem 'enum_help'
 # Flexible authentication solution for Rails with Warden. 
@@ -84,7 +84,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
   # RSpec for Rails-3
-  gem 'rspec-rails', '~> 3.6'
+  gem 'rspec-rails', '~> 3.7'
   # A library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker'
   # Generates Brazilian CPF numbers for use in testing.

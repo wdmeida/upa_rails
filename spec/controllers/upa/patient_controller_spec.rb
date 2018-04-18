@@ -56,7 +56,7 @@ RSpec.describe Upa::PatientsController, type: :controller do
 
       context 'with valid params' do
         before do
-          post :create, params: { patient: patient_params }, header: {}
+          post :create, params: { patient: patient_params }
         end
 
         it { is_expected.to respond_with(:redirect) }
@@ -67,7 +67,7 @@ RSpec.describe Upa::PatientsController, type: :controller do
         let(:patient_invalid) { attributes_for(:patient, name: '') }
         
         before do
-          post :create, params: { patient: patient_invalid }, headers: {}
+          post :create, params: { patient: patient_invalid }
         end
 
         it { is_expected.to render_template(:new) }
@@ -76,7 +76,7 @@ RSpec.describe Upa::PatientsController, type: :controller do
 
     context 'when secretary is logged out' do
       before do
-        post :create, params: { patient: patient_params }, headers: {}
+        post :create, params: { patient: patient_params }
       end
 
       it { is_expected.to redirect_to new_secretary_session_path }
@@ -87,7 +87,7 @@ RSpec.describe Upa::PatientsController, type: :controller do
     context 'when secretary is logged in' do
       login_secretary
 
-      before { get :edit, params: { id: patient.id }, headers: {} }
+      before { get :edit, params: { id: patient.id } }
 
       context 'with valid params' do
         it { is_expected.to respond_with(:ok) }
@@ -102,7 +102,7 @@ RSpec.describe Upa::PatientsController, type: :controller do
     end
 
     context 'when secretary is logged out' do
-      before { get :edit, params: { id: patient.id }, headers: {} }
+      before { get :edit, params: { id: patient.id } }
 
       it { is_expected.to redirect_to new_secretary_session_path }
     end
@@ -118,7 +118,7 @@ RSpec.describe Upa::PatientsController, type: :controller do
 
       context 'with valid params' do
         before do
-          get :update, params: { id: patient.id, patient: patient_attr }, headers: {}
+          get :update, params: { id: patient.id, patient: patient_attr }
           patient.reload
         end
 
@@ -128,7 +128,7 @@ RSpec.describe Upa::PatientsController, type: :controller do
       end
 
       context 'with invalid params' do
-        before { get :update, params: { id: patient.id, patient: { name: '' } }, headers: {} }
+        before { get :update, params: { id: patient.id, patient: { name: '' } } }
 
         it { is_expected.to render_template(:edit) }
       end
@@ -136,7 +136,7 @@ RSpec.describe Upa::PatientsController, type: :controller do
 
     context 'when secretary is logged out' do
       before do
-        get :update, params: { id: patient.id, patient: patient_attr }, headers: {}
+        get :update, params: { id: patient.id, patient: patient_attr }
       end
 
       it { is_expected.to redirect_to new_secretary_session_path }

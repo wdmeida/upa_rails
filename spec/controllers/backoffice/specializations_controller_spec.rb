@@ -56,7 +56,7 @@ RSpec.describe Backoffice::SpecializationsController, type: :controller do
 
       context 'with valid params' do
         before do 
-          post :create, params: { specialization: specialization_params }, headers: {}
+          post :create, params: { specialization: specialization_params }
         end
 
         it { is_expected.to respond_with(:redirect) }
@@ -65,7 +65,7 @@ RSpec.describe Backoffice::SpecializationsController, type: :controller do
 
       context 'with invalid params' do
         before do 
-          post :create, params: { specialization: { description: '' } }, headers: {}
+          post :create, params: { specialization: { description: '' } }
         end
 
         it { is_expected.to render_template(:new) }
@@ -74,7 +74,7 @@ RSpec.describe Backoffice::SpecializationsController, type: :controller do
 
     context 'when user is logged out' do
       before do
-        post :create, params: { specialization: specialization_params }, headers: {}        
+        post :create, params: { specialization: specialization_params }        
       end
 
       it { is_expected.to redirect_to new_admin_session_path }            
@@ -93,7 +93,7 @@ RSpec.describe Backoffice::SpecializationsController, type: :controller do
       end
 
       context 'with invalid params' do
-        before { get :edit, params: { id: 99999999 }, headers: {} }
+        before { get :edit, params: { id: 99999999 } }
         
         it { is_expected.to respond_with(:not_found) }
       end

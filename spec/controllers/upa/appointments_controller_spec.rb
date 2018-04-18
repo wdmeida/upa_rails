@@ -27,7 +27,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
   describe 'GET #new' do
     context 'when secretary is logged in' do
       login_secretary
-      before { get :new, params: { patient_id: appointment.patient_id }, headers: {} }
+      before { get :new, params: { patient_id: appointment.patient_id } }
 
       it { is_expected.to render_template(:new) }
       it { is_expected.to respond_with(:ok) }
@@ -38,7 +38,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
     end
 
     context 'when secretary is logged out' do
-      before { get :new, params: { patient_id: appointment.patient_id }, headers: {} }
+      before { get :new, params: { patient_id: appointment.patient_id } }
       
       it { is_expected.to redirect_to new_secretary_session_path }
     end
@@ -48,7 +48,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
     let!(:doctor) { create(:doctor) }
     let!(:patient) { create(:patient) }
     let!(:appointment_params) do 
-      attributes_for(:appointment,                                         
+      attributes_for(:appointment,
                      :doctor_id => doctor.id,
                      :specialization_id => doctor.specialization_id,
                      :patient_id => patient.id )
@@ -59,7 +59,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
 
       context 'with valid params' do
         before do 
-          post :create, params: { appointment: appointment_params }, headers: {}
+          post :create, params: { appointment: appointment_params }
         end
 
         it { is_expected.to respond_with(:redirect) }
@@ -80,14 +80,14 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
       end
 
       context 'with invalid params' do
-        before { get :edit, params: { id: 9999999999 }, headers: {} }
+        before { get :edit, params: { id: 9999999999 } }
 
         it { is_expected.to respond_with(:not_found) }
       end
     end
 
     context 'when secretary is logged out' do
-      before { get :edit, params: { id: appointment.id }, headers: {} }
+      before { get :edit, params: { id: appointment.id } }
 
       it { is_expected.to redirect_to new_secretary_session_path }
     end
@@ -105,7 +105,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
 
       context 'with valid params' do
         before do
-          get :update, params: { id: appointment.id, appointment: appointment_attr }, headers: {}
+          get :update, params: { id: appointment.id, appointment: appointment_attr }
           appointment.reload
         end
 
@@ -115,7 +115,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
       end
 
       context 'with invalid params' do
-        before { get :update, params: { id:appointment.id, appointment: { datetime_appointment: nil } }, headers: {} }
+        before { get :update, params: { id:appointment.id, appointment: { datetime_appointment: nil } } }
 
         it { is_expected.to render_template(:edit) }
       end
@@ -123,7 +123,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
 
     context 'when secretary is logged out' do
       before do
-        get :update, params: { id: appointment.id, appointment: appointment_attr }, headers: {}
+        get :update, params: { id: appointment.id, appointment: appointment_attr }
       end
 
       it { is_expected.to redirect_to new_secretary_session_path }
@@ -135,7 +135,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
       login_secretary
 
       context 'with appointment is valid' do
-        before { delete :destroy, params: { id: appointment.id }, headers: {} }
+        before { delete :destroy, params: { id: appointment.id } }
 
         it { is_expected.to respond_with(:redirect) }
 
@@ -147,7 +147,7 @@ RSpec.describe Upa::AppointmentsController, type: :controller do
     end
 
     context 'when secretary is logged out' do
-      before { delete :destroy, params: { id: appointment.id }, headers: {} }
+      before { delete :destroy, params: { id: appointment.id } }
 
       it { is_expected.to redirect_to new_secretary_session_path }
     end
