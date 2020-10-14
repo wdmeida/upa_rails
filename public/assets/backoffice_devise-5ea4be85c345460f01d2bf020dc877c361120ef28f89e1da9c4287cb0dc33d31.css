@@ -1,0 +1,13 @@
+/* line 4, app/assets/stylesheets/backoffice_devise.scss */
+body {
+  background-color: #563d7c;
+}
+
+/* line 8, app/assets/stylesheets/backoffice_devise.scss */
+.form-login {
+  box-shadow: 5px 5px 5px #000;
+  margin-top: 50px;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: #fff;
+}
