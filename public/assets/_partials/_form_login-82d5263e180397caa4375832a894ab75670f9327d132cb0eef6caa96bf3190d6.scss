@@ -1,0 +1,11 @@
+@mixin custom-body($primary-color-background) {
+  background-color: $primary-color-background;
+}
+
+@mixin custom-form-login($border-color, $secondary-color-background) {
+  box-shadow: 5px 5px 5px $border-color;
+  margin-top: 50px;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: $secondary-color-background;
+}
