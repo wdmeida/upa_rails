@@ -5,118 +5,64 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use Puma as the app server
 gem 'puma'
-# Use SCSS for stylesheets
-gem 'sass-rails'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-# Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
-gem 'rails-i18n'
-# Help ActiveRecord::Enum feature to work fine with I18n and simple_form. 
-gem 'enum_help'
-# Flexible authentication solution for Rails with Warden. 
-gem 'devise'
-# Translations for the devise gem 
-gem 'devise-i18n'
-# Paginação.
-gem 'kaminari'
-# Quick Bootstrap 4 styling (tested for bootstrap 4.0.0.alpha3) for Kaminari
-gem 'bootstrap4-kaminari-views'
-# Kaminari i18n
-gem 'kaminari-i18n'
-# jQuery UI for the Rails asset pipeline 
-gem 'jquery-ui-rails'
-# Object-based searching
-gem 'ransack'
-# Integration of RubyMoney - Money with Rails 
-gem 'money-rails', '~>1'
-# A kickass library to manage your poppers
-gem 'popper_js', '~> 1.12.3'
-# The iconic font and CSS toolkit
-gem 'font-awesome-rails'
-# The safe Markdown parser, reloaded.
-gem 'redcarpet'
-# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord.
-gem 'friendly_id'
-# Create beautiful JavaScript charts with one line of Ruby https://www.chartkick.com
-gem 'chartkick'
+gem 'rails', '= 5.2.4'
+gem 'sqlite3'
 
-# Rails Assets
+gem 'bootstrap4-kaminari-views'
+gem 'chartkick'
+gem 'coffee-rails'
+gem 'devise'
+gem 'devise-i18n'
+gem 'enum_help'
+gem 'font-awesome-rails'
+gem 'friendly_id'
+gem 'jquery-ui-rails'
+gem 'kaminari'
+gem 'kaminari-i18n'
+gem 'money-rails', '~>1'
+gem 'popper_js', '~> 1.12.3'
+gem 'rails-i18n'
+gem 'ransack'
+gem 'redcarpet'
+gem 'sass-rails'
+gem 'uglifier'
+
 source 'https://rails-assets.org' do
-  # Assets bootstrap
-  gem 'rails-assets-bootstrap', '4.0.0.beta'
-  # NotifyJS
-  gem 'rails-assets-notifyjs'
-  # A client-side library to make absolutely positioned elements attach to elements in the page efficiently.
-  gem 'rails-assets-tether'
-  # BootboxJS. Library for box confirmation and messages.
   gem 'rails-assets-bootbox'
-  # jQuery plugin select date and time.
+  gem 'rails-assets-bootstrap', '4.0.0.beta'
   gem 'rails-assets-datetimepicker'
-  # Inputmask is a javascript library which creates an input mask. Inputmask can run against vanilla javascript, jQuery and jqlite.
   gem 'rails-assets-inputmask'
+  gem 'rails-assets-notifyjs'
+  gem 'rails-assets-tether'
 end
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'jquery-rails'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'pry-rails'
-  # RSpec for Rails-3
-  gem 'rspec-rails', '~> 3.7'
-  # A library for generating fake data such as names, addresses, and phone numbers.
-  gem 'faker'
-  # Generates Brazilian CPF numbers for use in testing.
   gem 'cpf_faker'
+  gem 'ffaker'
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :test do
-  # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing. 
   gem 'database_cleaner'
-  # Collection of testing matchers extracted from Shoulda.
-  gem 'shoulda-matchers', '~> 3.1'
-  # factory_girl is a fixtures replacement with a straightforward definition syntax
   gem 'factory_bot_rails'
-  # Adding methods from controller-testing
   gem 'rails-controller-testing'
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  # Gem Listen
-  gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  # Preloader from rspec
-  gem 'spring-commands-rspec'
-  # Better error page for Rack apps
   gem 'better_errors'
-  # Manage Procfile-based applications
   gem 'foreman'
+  gem 'listen', '~> 3.0.5'
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
